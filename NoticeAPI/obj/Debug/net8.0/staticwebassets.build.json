@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "PEkA4OsInH32CjDJrwqqGKnoenqZJOBJmgWybLwNlOI=",
+  "Source": "NoticeAPI",
+  "BasePath": "_content/NoticeAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,15 @@
+#root {
+  max-width: 90% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: auto;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif; 
+}
