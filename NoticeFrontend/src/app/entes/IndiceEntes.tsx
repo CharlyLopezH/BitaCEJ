@@ -9,6 +9,7 @@ return (
 </div>
 <hr/>
 <TablaEntes/>
+<hr/>
 </>
 );
 

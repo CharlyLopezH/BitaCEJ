@@ -7,6 +7,8 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 0px;
   padding-top: 0px;
+  --color-thead: #153eb8;
+  --text-thead: white;
 }
 
 .logo {
@@ -67,14 +69,86 @@
     font-weight: bold;
     unicode-bidi: isolate;
     margin-bottom: 1px;
+    max-width: 100%;
 }
 
 .div-center {
-  /* display: flex; */
-  justify-content: center; /* Centrado vertical */
-  text-align: center;  
-  margin: 0 auto;
-  padding: 2rem;  
-  margin-top: 0px;
-  padding-top: 0px;
+   display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;    /* Centrado vertical */
+  height: 50vh;          /* Ocupa toda la altura visible */
+  margin: 0;
+  padding: 0;
+  text-align: center;     /* Para contenido inline/no-flex */
+}
+
+.my-compact-table {
+  /* --bs-table-line-height: 1.0; */
+  font-size: 1rem;
+}
+
+.my-compact-table tr {
+  padding: 0rem;
+  /* padding-bottom: .1rem; */
+  font-size: small;
+  vertical-align: center;
+}
+
+.my-compact-table td {
+  padding: 0rem;
+} 
+
+
+
+/* Overide de variables de boostrap */
+table.table thead.my-theader {
+  --bs-table-bg: #15b86c !important; /* Variable CSS que Bootstrap usa */
+  background-color: #b815b0 !important; 
+  --bs-table-color: #FFF    
+
+    /* Espaciado (padding) */
+  --bs-table-cell-padding-y: 2rem;    /* 12px - ajusta vertical */
+  --bs-table-cell-padding-x: 2rem;     /* 24px - ajusta horizontal */
+
+}
+
+/* Si necesitas altura específica para las filas */
+.my-table tbody td {
+  height: 40px;            /* Altura para celdas del cuerpo */
+  padding: 8px 16px !important;
+}
+
+.my-btn-compact {
+  padding: 0.25rem 0.5rem !important; /* 4px 8px */
+  font-size: 0.8rem !important;
+  line-height: 1.2;
+}
+
+/* Versión con máxima especificidad */
+table.table thead.my-theader,
+table.table thead.my-theader th {
+  color: white !important; /* Color texto */
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* padding: 10px 24px 10px 16px; No funciona*/
+  /*Ancho de theader*/
+  height: 2rem;                          /* Altura fija */
+  min-height: 2rem;                      /* Altura mínima */  
+  vertical-align: middle;
+  text-align: center;
+}
+
+.my-div-centrado-h {
+  text-align: center;     /* Para contenido inline/no-flex */
+}
+
+.my-select-recs-pagina {
+  width:12%;
+  padding-bottom: 0.5rem;
+}
+
+.my-label{
+  font-size: small;
+  color: blue;  
 }

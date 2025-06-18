@@ -1,87 +1,88 @@
-import type { AxiosResponse } from "axios";
-//import type { enteDTO } from "../models/entes.model";
-import type { enteDTO } from "../../../src/models/entes.model";
-import { urlEntes } from "../../../src/utils/endpoints";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from 'react';
+import useFetchEntes from '../../hooks/useFetchEntes';
 import Spinner from "../../utils/Spinner";
-//import reactLogo from './assets/react.svg'
+//import reactLogo from '../../assets/loadingbb.svg';
+import { urlEntes } from "../../utils/endpoints";
+import SelectOpcRegsPorPag from './componentes/SelectOpcRegsPorPag';
+import Paginacion from '../../utils/Paginacion';
 
-const TablaEntes = () => {
-  //Variables de estado
-  const [cargando, setCargando] = useState(true);
-  const [pagina, setPagina] = useState(1); // Página actual (base 0)
-  const [recordsPorPagina, setRecordsPorPagina] = useState(25); // Filas por página por defecto
-  const [totalDeRegistros, setTotaDeRegistros] = useState(0);
-  const [totalDePaginas, setTotalDePaginas] = useState(0);
-
-  //Función memorizable para lectura de datos y carga de la tabla
-  const fetchInitialData = async () => {
-    try {
-      const response: AxiosResponse<enteDTO[]> = await axios.get(urlEntes, {
-        params: {
-          pagina: pagina,
-          recordsPorPagina,
-        },
-      });
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Delay artificial fijo de 2 segundos *fake delay para probar el spinner
-      console.log(
-        `Haciendo el Get Respuesta: ${JSON.stringify(response.data, null, 2)}`
-      );
-
-      //Calcular número de páginas
-      const totalDeRegistros = parseInt(
-        response.headers["cantidadtotalregistros"],
-        10
-      ); //Convierte string a base 10
-      setTotaDeRegistros(totalDeRegistros);
-
-      //Cuántas páginas
-      setTotalDePaginas(Math.ceil(totalDeRegistros / recordsPorPagina));
-
-      //Control y manejo de errores
-    } catch (error) {
-      console.log(`Error al acceder al APIUrl ${error}`);
-
-      if (axios.isAxiosError(error)) {
-          console.error("Axios error:", {
-          message: error.message,
-          code: error.code,
-          status: error.response?.status,
-          data: error.response?.data,
-        });
-        if (error.response) {
-          // El servidor respondió con un código de error
-          console.error("Error del servidor:", error.response.data);
-        } else if (error.request) {
-          // La petición fue hecha pero no hubo respuesta
-          console.error("No hubo respuesta del servidor");
-        } else {
-          // Error al configurar la petición
-          console.error("Error al configurar la petición:", error.message);
-        }
-      } else {
-        console.error(`Inesperado ${error}`)
-      }
-
-    } finally {
-      setCargando(false);
-    }
-  };
-
-  //Llamado a la función memorizada que localiza los registros del APIUrl
-  useEffect(() => {
-    fetchInitialData();
-  }, [pagina, recordsPorPagina]);
-
+const TablaEntes = () => { //Trataremos de renderizar una tabla con los datos que vienen de un API
+  
+  const [pagina, setPagina] = useState(1); //Determina la página activa (porque usaremos paginación)
+  const [recordsPorPagina, setRecordsPorPagina] = useState(10); //Determina cuantos registros por página vamos a mostrar (por default 10)  
+  
+  //Extableciendo conexión con el API de Entes mediante Hook personalizado para establecer
+  const { data, totalDeRegistros, totalDePaginas, cargando, error } = useFetchEntes(urlEntes, pagina, recordsPorPagina); 
+  if (error) return <div>Error: {error}</div>; //Manejo (default) del posible error en el intento del hook personalizado
   //Si la Variable de estado "cargando" está en true, es porque no ha llegado al finally del load...
-  if (cargando) {return (<Spinner />);}
+  
+  if (cargando) {  return ( <div>       <Spinner/>  </div>    ); }
+
+  const handleEditar=(id: number)=> {
+    throw new Error(`Function not implemented.${id}`);
+  }
 
   //Cuando cargando sea false se ejecuta este return, que es el principal
   return (
     <>
+      <div>        
+        {/* Renderiza la tabla */}
+
+        {/* Componente para Seleccionar la cantidad de registros a mostrar*/}
+        <div className="container">
+            <div className="my-select-recs-pagina">
+                <label className='my-label'>Registros por página:</label>
+                <select
+                    className="form-control"
+                    defaultValue={10}
+                    onChange={e => {
+                        setPagina(1);
+                        setRecordsPorPagina(parseInt(e.currentTarget.value, 10))
+                    }}>
+                    <option value={5}>mostrar 5</option>
+                    <option value={10}>mostrar 10</option>
+                    <option value={25}>25</option>
+                    <option value={50}>50</option>
+                </select>
+            </div>
+
+
+
+          <div>            
+          <table className="table table-responsive table-sm table-responsive table-sm my-compact-table table-striped table-hover">
+            <thead className='my-theader'>
+            <tr>
+             <td>ID</td>
+             <td>Nombre</td>
+             <td>Tipo</td>
+             <td>Opciones</td>
+            </tr>
+           </thead>
+           <tbody>
+              {data.map((ente) => (
+                   <tr key={ente.id}>
+                    <td>{ente.id}</td>
+                    <td>{ente.nombre}</td>
+                    <td>{ente.tipo}</td>
+                    <td className='text-center'>
+                      <button className="btn btn-sm btn-outline-primary my-btn-compact"onClick={() => handleEditar(ente.id)}> Editar </button> 
+                      <span> </span>
+                      <button className="btn btn-sm btn-outline-danger my-btn-compact"onClick={() => handleEditar(ente.id)}> Borrar </button> 
+                    </td>
+                   </tr>
+                  ))}
+          </tbody>
+          </table>
+          </div>
+              <SelectOpcRegsPorPag 
+              defaultValue={10} 
+              opciones={[5, 10, 25, 50]} 
+              onChangeRecords={setRecordsPorPagina}
+              resetPage={() => setPagina(1)} // Función opcional para resetear
+              />
+        </div>        
+      </div>
       <div>
-        <hr />
       </div>
     </>
   );
