@@ -8,7 +8,7 @@ const Paginacion=(props: paginacionProps)=> {
         const links: modeloLink[] = [];
 
         links.push({
-            texto: 'Anterior',
+            texto: '|<',
             habilitado: paginaAnteriorHabilitada,
             pagina: paginaAnterior,
             activo: false
@@ -27,7 +27,7 @@ const Paginacion=(props: paginacionProps)=> {
         const paginaSiguienteHabilitada = props.paginaActual !== props.cantidadTotalDePaginas && props.cantidadTotalDePaginas > 0;
         const paginaSiguiente = props.paginaActual + 1;
         links.push({
-            texto: 'Siguiente',
+            texto: '>|',
             pagina: paginaSiguiente,
             habilitado: paginaSiguienteHabilitada,
             activo: false
@@ -62,7 +62,7 @@ const Paginacion=(props: paginacionProps)=> {
 
     return (
         <nav>
-            <ul className="pagination justify-content-center">
+            <ul className="pagination justify-content-center pagination-sm">
                 {listadoLinks.map(link => <li key={link.texto}
                  onClick={() => seleccionarPagina(link)}
                  className={`page-item cursor ${obtenerClase(link)}`}

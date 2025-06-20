@@ -5,14 +5,17 @@ import Spinner from "../../utils/Spinner";
 import { urlEntes } from "../../utils/endpoints";
 import SelectOpcRegsPorPag from './componentes/SelectOpcRegsPorPag';
 import Paginacion from '../../utils/Paginacion';
+import BuscadorCadenaString from '../../utils/FiltroEntesString';
+import FiltroEntesString from '../../utils/FiltroEntesString';
 
 const TablaEntes = () => { //Trataremos de renderizar una tabla con los datos que vienen de un API
   
   const [pagina, setPagina] = useState(1); //Determina la página activa (porque usaremos paginación)
   const [recordsPorPagina, setRecordsPorPagina] = useState(10); //Determina cuantos registros por página vamos a mostrar (por default 10)  
+  const [cadenaBuscar, setCadenaBuscar]=useState('Nada');
   
   //Extableciendo conexión con el API de Entes mediante Hook personalizado para establecer
-  const { data, totalDeRegistros, totalDePaginas, cargando, error } = useFetchEntes(urlEntes, pagina, recordsPorPagina); 
+  const { data, totalDePaginas, cargando, error } = useFetchEntes(urlEntes, pagina, recordsPorPagina); 
   if (error) return <div>Error: {error}</div>; //Manejo (default) del posible error en el intento del hook personalizado
   //Si la Variable de estado "cargando" está en true, es porque no ha llegado al finally del load...
   
@@ -25,30 +28,26 @@ const TablaEntes = () => { //Trataremos de renderizar una tabla con los datos qu
   //Cuando cargando sea false se ejecuta este return, que es el principal
   return (
     <>
-      <div>        
         {/* Renderiza la tabla */}
-
-        {/* Componente para Seleccionar la cantidad de registros a mostrar*/}
-        <div className="container">
-            <div className="my-select-recs-pagina">
-                <label className='my-label'>Registros por página:</label>
-                <select
-                    className="form-control"
-                    defaultValue={10}
-                    onChange={e => {
-                        setPagina(1);
-                        setRecordsPorPagina(parseInt(e.currentTarget.value, 10))
-                    }}>
-                    <option value={5}>mostrar 5</option>
-                    <option value={10}>mostrar 10</option>
-                    <option value={25}>25</option>
-                    <option value={50}>50</option>
-                </select>
-            </div>
-
-
-
-          <div>            
+        
+    <div className="my-full-width-split" >
+      <div className='my-split-15'>
+        <SelectOpcRegsPorPag             
+             defaultValue={10} 
+             opciones={[5, 10, 25, 50]} 
+             onChangeRecords={setRecordsPorPagina}
+             resetPage={() => setPagina(1)} // Función opcional para resetear
+             />
+      </div>
+      <div className='my-split-85'>
+        <FiltroEntesString 
+        cadenaString={cadenaBuscar} 
+        fetchData={data}/>
+    </div>
+    </div>
+        <div>
+          <div>         
+             
           <table className="table table-responsive table-sm table-responsive table-sm my-compact-table table-striped table-hover">
             <thead className='my-theader'>
             <tr>
@@ -58,7 +57,7 @@ const TablaEntes = () => { //Trataremos de renderizar una tabla con los datos qu
              <td>Opciones</td>
             </tr>
            </thead>
-           <tbody>
+            <tbody>
               {data.map((ente) => (
                    <tr key={ente.id}>
                     <td>{ente.id}</td>
@@ -71,19 +70,20 @@ const TablaEntes = () => { //Trataremos de renderizar una tabla con los datos qu
                     </td>
                    </tr>
                   ))}
-          </tbody>
-          </table>
+            </tbody>
+            </table>
+            
+           {/* Componente de paginación  */}
+           <Paginacion 
+           paginaActual={pagina} 
+           cantidadTotalDePaginas={totalDePaginas} 
+           radio={3}
+           onChange={(nuevaPagina) => setPagina(nuevaPagina)}
+           />
           </div>
-              <SelectOpcRegsPorPag 
-              defaultValue={10} 
-              opciones={[5, 10, 25, 50]} 
-              onChangeRecords={setRecordsPorPagina}
-              resetPage={() => setPagina(1)} // Función opcional para resetear
-              />
         </div>        
-      </div>
       <div>
-      </div>
+    </div>
     </>
   );
 };

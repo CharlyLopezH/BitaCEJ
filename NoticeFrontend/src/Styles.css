@@ -4,7 +4,8 @@
   margin: 0 auto;
   padding: 2rem;
   /* text-align: center; */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: 'Segoe UI',Tahoma, Verdana, sans-serif; */
+  font-family: 'Roboto', sans-serif;  
   margin-top: 0px;
   padding-top: 0px;
   --color-thead: #153eb8;
@@ -17,6 +18,37 @@
   will-change: filter;
   transition: filter 500ms;
 }
+
+
+
+/* Clases para diferentes pesos */
+.roboto-light {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.roboto-regular {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.roboto-medium {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+.roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+.roboto-small-color {
+  font-family: 'Roboto', sans-serif;
+  font-size: small;
+  color: rgb(0, 110, 255);
+  padding-left: 0;
+}
+
 
 /* Aplica la animación SOLO al logo de React */
 .logo.react {
@@ -143,12 +175,58 @@ table.table thead.my-theader th {
   text-align: center;     /* Para contenido inline/no-flex */
 }
 
-.my-select-recs-pagina {
-  width:12%;
-  padding-bottom: 0.5rem;
+.my-label{
+  font-family: 'Roboto', sans-serif;
+  font-size: 5px;
+  color: rgb(48, 31, 112);  
 }
 
-.my-label{
+.my-full-width-split {
+  width: 100%;
+  display: flex;    
+  font-size: inherit;
+}
+
+.my-split-15 {
+  width: 15%;
+}
+
+.my-split-85 {
+  width: 85%;
+}
+
+.my-split-15 > *, .my-split-85 > * {
+  height: 35px; /* o la altura que prefieras */
+  box-sizing: border-box;
+  padding-right: 1px;  
+}
+
+.input-matched-height {
+  height: 29.5px;
+  min-height: 29.5px; /* Fallback por si height:100% no funciona */
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;  
+}
+
+/* Estilos de focus idénticos al form-select */
+.input-matched-height:focus {
+  border-color: #86b7fe;
+  outline: 10;
+  box-shadow: 0 0 0 0.10rem rgba(13, 110, 253, 0.25);
+  font-family: 'Roboto';
   font-size: small;
-  color: blue;  
+}
+
+.form-select-sm {
+  color: rgb(48, 83, 156);
+  font-size: small;
+  font-family: 'Roboto', sans-serif ;
+}
+
+.form-control {
+  height: 30px;
 }

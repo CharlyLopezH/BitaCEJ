@@ -1,7 +1,6 @@
 // hooks/useFetchEntes.ts
 import { useState, useEffect } from "react";
 import axios, { type AxiosResponse} from "axios";
-import reactLogo from '../../src/assets/loadingbb.svg';
 
 import type { enteDTO } from "../models/entes.model"; // Ajusta la ruta según tu estructura
 
@@ -16,6 +15,7 @@ const useFetchEntes = (urlEntes: string,
 
   const cargarDatos = async () => {
     try {
+      console.log(urlEntes,'urlEntes del API llamado, en el useFetch')
       const response: AxiosResponse<enteDTO[]> = await axios.get(urlEntes, {
         params: { pagina, recordsPorPagina },
       });

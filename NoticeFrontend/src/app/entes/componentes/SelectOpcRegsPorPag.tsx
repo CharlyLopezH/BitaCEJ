@@ -5,13 +5,13 @@ const SelectOpcRegsPorPag=(props:SelectOpcRegsPorPagProps)=>{
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const newValue = parseInt(event.target.value, 10);
+        console.log(`NewValue en el handleChange del componente ${newValue}`);
         props.onChangeRecords(newValue);
     if (props.resetPage) props.resetPage(); // Resetear página si existe la función
   }
 
 return(
-      <div className="my-select-recs-pagina">
-        <label className="my-label">Registros Por Página:</label>
+      <div>        
         <select
           className="form-select form-select-sm"
           defaultValue={props.defaultValue}

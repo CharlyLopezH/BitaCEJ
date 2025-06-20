@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import reactLogo from '../../src/assets/loadingbb.svg';
+import reactLogo from '../../src/assets/react.svg';
 
 const Spinner=()=>{
 
