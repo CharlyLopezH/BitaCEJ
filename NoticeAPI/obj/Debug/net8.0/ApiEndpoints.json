@@ -160,8 +160,42 @@
   },
   {
     "ContainingType": "NoticeAPI.Endpoints.EntesEndpoints",
-    "Method": "BuscarRegistros",
-    "RelativePath": "entes/buscarRegistros/{cadena}",
+    "Method": "FiltrarEntes",
+    "RelativePath": "entes/filtrar/{cadena}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cadena",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "pagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "recordsPorPagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NoticeAPI.DTOs.EnteDTO, NoticeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NoticeAPI.Endpoints.EntesEndpoints",
+    "Method": "FiltrarSinPaginar",
+    "RelativePath": "entes/filtrarSinPaginar/{cadena}",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,
@@ -209,7 +243,7 @@
   {
     "ContainingType": "NoticeAPI.Endpoints.EntesEndpoints",
     "Method": "ObtenerTodos",
-    "RelativePath": "entes/Todos",
+    "RelativePath": "entes/todos",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,

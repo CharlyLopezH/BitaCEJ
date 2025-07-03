@@ -12,17 +12,31 @@ namespace NoticeAPI.Endpoints
     {
         public static RouteGroupBuilder MapEntes(this RouteGroupBuilder group)
         {
-            group.MapGet("/Todos", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("entes-get"));
+            group.MapGet("/todos", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("entes-get"));
+            group.MapGet("filtrar/{cadena}", FiltrarEntes); //Ep que pagina
+
             group.MapPost("/", CrearEnte);
             group.MapGet("/", Obtener).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("entes-get"));
-            group.MapGet("obtenerPorNombre/{nombre}", ObtenerPorNombre);
-            group.MapGet("buscarRegistros/{cadena}", BuscarRegistros);
+
+            group.MapGet("obtenerPorNombre/{nombre}", ObtenerPorNombre);            
+
             group.MapGet("/{id:int}", ObtenerPorId);
             group.MapDelete("/{id:int}", Borrar);            
             group.MapPut("/{id:int}", Actualizar).DisableAntiforgery();
 
+            group.MapGet("filtrarSinPaginar/{cadena}", FiltrarSinPaginar);
+
+
             return group;
         }
+
+
+        //static async Task<Ok<List<EnteDTO>>> BuscarString(string cadena, IRepositorioEntes repositorio, Mapper mapper)
+        //{
+        //    var entes = await repositorio.BuscarString(cadena);
+        //    var entesDTO = mapper.Map<List<EnteDTO>>(entes);
+        //    return TypedResults.Ok(entesDTO);
+        //}
 
         static async Task<Created<EnteDTO>> CrearEnte(CrearEnteDTO crearEnteDTO, IRepositorioEntes repositorio,
         IOutputCacheStore outputCacheStore, IMapper mapper)
@@ -43,7 +57,16 @@ namespace NoticeAPI.Endpoints
             return TypedResults.Ok(entesDTO);
         }
 
-        //Regresa lista *paginada* de entes
+        static async Task<Ok<List<EnteDTO>>> FiltrarEntes(string cadena, IRepositorioEntes repositorio, IMapper mapper, 
+                            int pagina = 1, int recordsPorPagina = 10)
+        {
+            var paginacion = new PaginacionDTO { Pagina = pagina, RecordsPorPagina = recordsPorPagina };
+            var entes = await repositorio.FiltrarRegistros(cadena, paginacion);
+            var entesDTO = mapper.Map<List<EnteDTO>>(entes);
+            return TypedResults.Ok(entesDTO);
+        }
+
+        //Regresa lista *paginada* de entes En el API tener cuidado de que estos parámetros coincidan con los valores iniciales del UI
         static async Task<Ok<List<EnteDTO>>> Obtener(IRepositorioEntes repositorio, IMapper mapper, int pagina = 1, int recordsPorPagina = 10)
         {
             var paginacion = new PaginacionDTO { Pagina = pagina, RecordsPorPagina = recordsPorPagina };
@@ -55,19 +78,28 @@ namespace NoticeAPI.Endpoints
         static async Task<Ok<List<EnteDTO>>> ObtenerPorNombre(string nombre,
          IRepositorioEntes repositorio, IMapper mapper)
         {
-            var entes = await repositorio.ObtenerPorNombre(nombre);
+            var entes = await repositorio.FiltrarRegistros(nombre);
             var entesDTO = mapper.Map<List<EnteDTO>>(entes);
             return TypedResults.Ok(entesDTO);
         }
 
-        //Busqueda flexible (string en varios campos)
-        static async Task<Ok<List<EnteDTO>>> BuscarRegistros(string cadena,
-        IRepositorioEntes repositorio, IMapper mapper)
+        static async Task<Ok<List<EnteDTO>>> FiltrarSinPaginar(string cadena, IRepositorioEntes repositorio, IMapper mapper)
         {
-            var entes = await repositorio.BuscarRegistros(cadena);
+            var entes = await repositorio.FiltrarRegistros(cadena);
             var entesDTO = mapper.Map<List<EnteDTO>>(entes);
             return TypedResults.Ok(entesDTO);
         }
+
+
+        //Busqueda para localizar en todas las columnas (x string en varios campos)
+        //static async Task<Ok<List<EnteDTO>>> BuscarRegistros(string cadena,
+        //IRepositorioEntes repositorio, IMapper mapper)
+        //{
+        //    var entes = await repositorio.BuscarRegistros(cadena);
+        //    var entesDTO = mapper.Map<List<EnteDTO>>(entes);
+        //    return TypedResults.Ok(entesDTO);
+        //}
+
 
         static async Task<Results<Ok<EnteDTO>, NotFound>> ObtenerPorId(int id,
                 IRepositorioEntes repositorio, IMapper mapper)

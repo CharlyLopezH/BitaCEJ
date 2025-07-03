@@ -230,3 +230,8 @@ table.table thead.my-theader th {
 .form-control {
   height: 30px;
 }
+
+.form-control:focus {
+  /* background-color: #5e8674;   */
+  margin-right: 0.2rem;    
+}

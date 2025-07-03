@@ -17,6 +17,7 @@ namespace NoticeAPI.Repositorios
         }
 
 
+        //Todo es todo, sin paginar si quiera.
         public async Task<List<Ente>> ObtenerTodos()
         {
             var queryable = context.Entes.AsQueryable();
@@ -59,24 +60,6 @@ namespace NoticeAPI.Repositorios
         }
 
 
-        public async Task<List<Ente>> BuscarRegistros(string cadena)
-        {
-            if (string.IsNullOrWhiteSpace(cadena))
-                return new List<Ente>(); // O lanzar una excepción controlada
-
-            return await context.Entes
-                .Where(a =>
-                    a.Nombre.Contains(cadena) ||
-                    (a.Tipo != null && a.Tipo.Contains(cadena)) || // Si Abreviado es opcional
-                    a.Id.ToString().Contains(cadena) // Búsqueda en ID convertido a string
-                                                     // Agrega más campos según necesites
-                )
-                .OrderBy(a => a.Nombre)
-                .AsNoTracking() // Recomendado para solo lectura
-                .ToListAsync();
-        }
-
-
         public Task<List<Ente>> BusquedaEspecial(string cadena)
         {
             throw new NotImplementedException();
@@ -95,11 +78,47 @@ namespace NoticeAPI.Repositorios
         }
 
 
-        public async Task<List<Ente>> ObtenerPorNombre(string nombre)
+        public async Task<List<Ente>> FiltrarRegistros(string nombre)
         {
+            if (string.IsNullOrWhiteSpace(nombre)) return new List<Ente>(); // O lanzar una excepción controlada
+
             return await context.Entes.Where(a => a.Nombre.Contains(nombre))
             .OrderBy(a => a.Nombre).ToListAsync();
 
+        }
+
+
+
+        public async Task<List<Ente>> FiltrarSinPaginar(string cadena)
+        {
+            if (string.IsNullOrWhiteSpace(cadena))
+                return new List<Ente>(); // O lanzar una excepción controlada
+
+            return await context.Entes
+                .Where(a =>
+                    a.Nombre.Contains(cadena) ||
+                    (a.Tipo != null && a.Tipo.Contains(cadena)) || // Si Abreviado es opcional
+                    a.Id.ToString().Contains(cadena) // Búsqueda en ID convertido a string
+                                                     // Agrega más campos según necesites
+                )
+                .OrderBy(a => a.Nombre)
+                .AsNoTracking() // Recomendado para solo lectura
+                .ToListAsync();
+        }
+
+        public async Task<List<Ente>> FiltrarRegistros(string cadena, PaginacionDTO paginacionDTO)
+        {
+            if (string.IsNullOrWhiteSpace(cadena))
+                return new List<Ente>(); // O lanzar una excepción controlada
+
+            return await context.Entes
+            .Where(a =>
+            a.Nombre.Contains(cadena) || (a.Tipo != null && a.Tipo.Contains(cadena)) || // Si Abreviado es opcional
+            a.Id.ToString().Contains(cadena) // Búsqueda en ID convertido a string
+            )
+            .OrderBy(a => a.Nombre)
+            .AsNoTracking() // Recomendado para solo lectura
+            .ToListAsync();
         }
     }
 }

@@ -1,7 +1,6 @@
 // hooks/useFetchEntes.ts
 import { useState, useEffect } from "react";
 import axios, { type AxiosResponse} from "axios";
-
 import type { enteDTO } from "../models/entes.model"; // Ajusta la ruta según tu estructura
 
 const useFetchEntes = (urlEntes: string, 
@@ -15,13 +14,11 @@ const useFetchEntes = (urlEntes: string,
 
   const cargarDatos = async () => {
     try {
-      console.log(urlEntes,'urlEntes del API llamado, en el useFetch')
-      const response: AxiosResponse<enteDTO[]> = await axios.get(urlEntes, {
+        //console.log(urlEntes,'urlEntes dentro del Hook personalizado')
+        const response: AxiosResponse<enteDTO[]> = await axios.get(urlEntes, {
         params: { pagina, recordsPorPagina },
       });
-
-      console.log(`Respuesta: ${JSON.stringify(response.data, null, 2)}`);
-
+      //console.log(`Respuesta: ${JSON.stringify(response.data, null, 2)}`);
       const totalDeRegistros = parseInt(
         response.headers["cantidadtotalregistros"],
         10

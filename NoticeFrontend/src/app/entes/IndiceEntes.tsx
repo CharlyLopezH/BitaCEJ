@@ -1,4 +1,4 @@
-import TablaEntes from "./TablaEntes";
+import TablaEntexx from "./TablaEntexx";
 
 const IndiceEntes=()=>{
 return (
@@ -8,7 +8,7 @@ return (
    Sistema Notice / Índice de Entes 
 </div>
 <hr/>
-<TablaEntes/>
+<TablaEntexx/>
 <hr/>
 </>
 );
