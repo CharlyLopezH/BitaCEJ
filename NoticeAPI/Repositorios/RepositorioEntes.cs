@@ -2,6 +2,7 @@
 using NoticeAPI.DTOs;
 using NoticeAPI.Entidades;
 using NoticeAPI.Utilidades;
+using System.Linq;
 
 namespace NoticeAPI.Repositorios
 {
@@ -41,8 +42,34 @@ namespace NoticeAPI.Repositorios
             await httpContext.InsertarParametrosPaginacionEnCabecera(queryable);
             //Sin paginación
             //return await context.Adscripciones.OrderBy(a => a.Nombre).ToListAsync(); 
+
             //Con paginación
             return await queryable.OrderBy(a => a.Id).Paginar(paginacionDTO).ToListAsync();
+        }
+
+        //Filtrar Registros con paginación
+        public async Task<List<Ente>> FiltrarRegistros(string cadena, PaginacionDTO paginacionDTO)
+        {
+            if (string.IsNullOrWhiteSpace(cadena))
+                return new List<Ente>(); // O lanzar una excepción controlada
+
+            var queryable = context.Entes.AsQueryable();
+            //Sin paginación
+            //return await context.Adscripciones.OrderBy(a => a.Nombre).ToListAsync(); 
+
+            //Con paginación
+            // Primero aplicamos el filtro
+            queryable = queryable.Where(a =>
+            a.Nombre.Contains(cadena) || (a.Tipo != null && a.Tipo.Contains(cadena)) || // Si Abreviado es opcional
+            a.Id.ToString().Contains(cadena) // Búsqueda en ID convertido a string
+            ).OrderBy(a => a.Id);
+
+            // Luego calculamos el total filtrado y lo enviamos en los headers
+            await httpContext.InsertarParametrosPaginacionEnCabecera(queryable);
+
+            // Finalmente aplicamos la paginación
+            return await queryable.Paginar(paginacionDTO).ToListAsync();
+
         }
 
 
@@ -78,17 +105,6 @@ namespace NoticeAPI.Repositorios
         }
 
 
-        public async Task<List<Ente>> FiltrarRegistros(string nombre)
-        {
-            if (string.IsNullOrWhiteSpace(nombre)) return new List<Ente>(); // O lanzar una excepción controlada
-
-            return await context.Entes.Where(a => a.Nombre.Contains(nombre))
-            .OrderBy(a => a.Nombre).ToListAsync();
-
-        }
-
-
-
         public async Task<List<Ente>> FiltrarSinPaginar(string cadena)
         {
             if (string.IsNullOrWhiteSpace(cadena))
@@ -106,7 +122,7 @@ namespace NoticeAPI.Repositorios
                 .ToListAsync();
         }
 
-        public async Task<List<Ente>> FiltrarRegistros(string cadena, PaginacionDTO paginacionDTO)
+        public async Task<List<Ente>> FiltrarRegistros(string cadena) //Sin paginar!!!
         {
             if (string.IsNullOrWhiteSpace(cadena))
                 return new List<Ente>(); // O lanzar una excepción controlada
@@ -120,5 +136,7 @@ namespace NoticeAPI.Repositorios
             .AsNoTracking() // Recomendado para solo lectura
             .ToListAsync();
         }
+
+   
     }
 }

@@ -30,7 +30,7 @@ return(
 export default SelectOpcRegsPorPag;
 
 interface SelectOpcRegsPorPagProps {  
-  defaultValue:number
+  defaultValue?:number
   opciones: number[]
   onChangeRecords: (value: number) => void;
   resetPage?: () => void;

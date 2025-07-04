@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:endpoints\\entesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\repositorios\\repositorioentes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:repositorios\\repositorioentes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\repositorios\\irepositorioentes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:repositorios\\irepositorioentes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\repositorios\\repositorioentes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:repositorios\\repositorioentes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,27 +34,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "IRepositorioEntes.cs",
               "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\IRepositorioEntes.cs",
               "RelativeDocumentMoniker": "Repositorios\\IRepositorioEntes.cs",
               "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\IRepositorioEntes.cs",
               "RelativeToolTip": "Repositorios\\IRepositorioEntes.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAuwBIAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T16:40:07.64Z"
+              "WhenOpened": "2025-05-16T16:40:07.64Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "RepositorioEntes.cs",
               "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\RepositorioEntes.cs",
               "RelativeDocumentMoniker": "Repositorios\\RepositorioEntes.cs",
               "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\RepositorioEntes.cs",
               "RelativeToolTip": "Repositorios\\RepositorioEntes.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAzwG4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAADwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T16:46:08.445Z"
+              "WhenOpened": "2025-05-16T16:46:08.445Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -64,7 +66,7 @@
               "RelativeDocumentMoniker": "Endpoints\\EntesEndpoints.cs",
               "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\EntesEndpoints.cs",
               "RelativeToolTip": "Endpoints\\EntesEndpoints.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAiwA8AAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-16T16:34:24.626Z",
               "EditorCaption": ""

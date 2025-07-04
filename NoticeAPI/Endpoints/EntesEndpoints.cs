@@ -12,10 +12,14 @@ namespace NoticeAPI.Endpoints
     {
         public static RouteGroupBuilder MapEntes(this RouteGroupBuilder group)
         {
-            group.MapGet("/todos", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("entes-get"));
-            group.MapGet("filtrar/{cadena}", FiltrarEntes); //Ep que pagina
+            group.MapGet("/todos", ObtenerTodos)
+                .CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("entes-get"));
+            group.MapGet("filtrarDataPag/{cadena}", FiltrarEntes)
+                .CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("entes-get")); //Endpoint con filtrado de dato y paginacion (string)
 
             group.MapPost("/", CrearEnte);
+
+            //Endpoint genérico con paginación
             group.MapGet("/", Obtener).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("entes-get"));
 
             group.MapGet("obtenerPorNombre/{nombre}", ObtenerPorNombre);            
@@ -29,15 +33,6 @@ namespace NoticeAPI.Endpoints
 
             return group;
         }
-
-
-        //static async Task<Ok<List<EnteDTO>>> BuscarString(string cadena, IRepositorioEntes repositorio, Mapper mapper)
-        //{
-        //    var entes = await repositorio.BuscarString(cadena);
-        //    var entesDTO = mapper.Map<List<EnteDTO>>(entes);
-        //    return TypedResults.Ok(entesDTO);
-        //}
-
         static async Task<Created<EnteDTO>> CrearEnte(CrearEnteDTO crearEnteDTO, IRepositorioEntes repositorio,
         IOutputCacheStore outputCacheStore, IMapper mapper)
         {
@@ -57,15 +52,6 @@ namespace NoticeAPI.Endpoints
             return TypedResults.Ok(entesDTO);
         }
 
-        static async Task<Ok<List<EnteDTO>>> FiltrarEntes(string cadena, IRepositorioEntes repositorio, IMapper mapper, 
-                            int pagina = 1, int recordsPorPagina = 10)
-        {
-            var paginacion = new PaginacionDTO { Pagina = pagina, RecordsPorPagina = recordsPorPagina };
-            var entes = await repositorio.FiltrarRegistros(cadena, paginacion);
-            var entesDTO = mapper.Map<List<EnteDTO>>(entes);
-            return TypedResults.Ok(entesDTO);
-        }
-
         //Regresa lista *paginada* de entes En el API tener cuidado de que estos parámetros coincidan con los valores iniciales del UI
         static async Task<Ok<List<EnteDTO>>> Obtener(IRepositorioEntes repositorio, IMapper mapper, int pagina = 1, int recordsPorPagina = 10)
         {
@@ -74,6 +60,17 @@ namespace NoticeAPI.Endpoints
             var entesDTO = mapper.Map<List<EnteDTO>>(entes);
             return TypedResults.Ok(entesDTO);
         }
+
+        static async Task<Ok<List<EnteDTO>>> FiltrarEntes(string cadena, IRepositorioEntes repositorio, IMapper mapper, 
+                            int pagina = 1, int recordsPorPagina = 10)
+        {
+            var paginacion = new PaginacionDTO { Pagina = pagina, RecordsPorPagina = recordsPorPagina };
+            var entes = await repositorio.FiltrarRegistros(cadena,paginacion);
+            var entesDTO = mapper.Map<List<EnteDTO>>(entes);
+            return TypedResults.Ok(entesDTO);
+        }
+
+
 
         static async Task<Ok<List<EnteDTO>>> ObtenerPorNombre(string nombre,
          IRepositorioEntes repositorio, IMapper mapper)
@@ -101,11 +98,9 @@ namespace NoticeAPI.Endpoints
         //}
 
 
-        static async Task<Results<Ok<EnteDTO>, NotFound>> ObtenerPorId(int id,
-                IRepositorioEntes repositorio, IMapper mapper)
+        static async Task<Results<Ok<EnteDTO>, NotFound>> ObtenerPorId(int id, IRepositorioEntes repositorio, IMapper mapper)
         {
             var ente = await repositorio.ObtenerPorId(id);
-
             if (ente is null)
             {
                 return TypedResults.NotFound();
@@ -145,9 +140,6 @@ namespace NoticeAPI.Endpoints
             await outputCacheStore.EvictByTagAsync("entes-get", default);
             return TypedResults.NoContent();
         }
-
-
-
 
     }
 }

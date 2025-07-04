@@ -25,6 +25,8 @@ const [inputValue, setInputValue] = useState('');
  const handleClear = () => {
     setSearchTerm('');
     setSearchTerm('');
+    props.setFiltrar('');
+    setInputValue('');
     //props.onSearchChange(''); // Notificar al padre que se limpió la búsqueda
   };
 
@@ -59,7 +61,7 @@ const [inputValue, setInputValue] = useState('');
             className="btn btn-outline-secondary"
             style={{paddingTop:0, paddingBottom:0}}
             type="button"
-            onClick={handleReset}
+            onClick={handleClear}
           >
             <FaTimes />
           </button>

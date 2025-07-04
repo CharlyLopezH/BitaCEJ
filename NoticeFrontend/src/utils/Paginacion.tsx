@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const Paginacion=(props: paginacionProps)=> {
     const [listadoLinks, setListadoLinks] = useState<modeloLink[]>([]);
+
     useEffect(() => {
         const paginaAnteriorHabilitada = props.paginaActual !== 1;
         const paginaAnterior = props.paginaActual - 1;
@@ -65,6 +66,7 @@ const Paginacion=(props: paginacionProps)=> {
             <ul className="pagination justify-content-center pagination-sm">
                 {listadoLinks.map(link => <li key={link.texto}
                  onClick={() => seleccionarPagina(link)}
+                 style={{cursor:'pointer'}}
                  className={`page-item cursor ${obtenerClase(link)}`}
                 >
                     <span className="page-link">{link.texto}</span>

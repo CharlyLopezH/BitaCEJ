@@ -4,7 +4,7 @@
     {
         public int Pagina { get; set; } = 1;
         private int recordsPorPagina = 10;
-        private readonly int cantidadMaximaRecordsPorPagina = 50;
+        private readonly int cantidadMaximaRecordsPorPagina = 80;
 
         public int RecordsPorPagina
         {

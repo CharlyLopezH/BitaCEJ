@@ -14,8 +14,10 @@ namespace NoticeAPI.Repositorios
         Task Borrar(int id);
         Task<bool> Existe(int id);
         Task<Ente?> ObtenerPorId(int id);
+        Task<List<Ente>> FiltrarRegistros(string nombre, PaginacionDTO paginacionDTO);
+
         Task<List<Ente>> FiltrarRegistros(string nombre);
-        Task<List<Ente>> FiltrarRegistros(string cadena, PaginacionDTO paginacionDTO);
+        //Task<List<Ente>> FiltrarRegistrosPag(string cadena, PaginacionDTO paginacionDTO);
         Task<List<Ente>> FiltrarSinPaginar(string cadena); 
         //Filtro de Entes Sin paginación, recibe una cadena de búsqueda y un DTO para paginación                
 

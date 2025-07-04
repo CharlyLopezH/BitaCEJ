@@ -161,7 +161,7 @@
   {
     "ContainingType": "NoticeAPI.Endpoints.EntesEndpoints",
     "Method": "FiltrarEntes",
-    "RelativePath": "entes/filtrar/{cadena}",
+    "RelativePath": "entes/filtrarDataPag/{cadena}",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,

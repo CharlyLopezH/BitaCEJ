@@ -235,3 +235,7 @@ table.table thead.my-theader th {
   /* background-color: #5e8674;   */
   margin-right: 0.2rem;    
 }
+
+.pointer {
+  cursor: pointer;
+}
