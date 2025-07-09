@@ -20,7 +20,6 @@
 }
 
 
-
 /* Clases para diferentes pesos */
 .roboto-light {
   font-family: 'Roboto', sans-serif;
@@ -238,4 +237,15 @@ table.table thead.my-theader th {
 
 .pointer {
   cursor: pointer;
+}
+
+.custom-tooltip .tooltip-inner {
+  background-color: #dc3545 !important;
+  color: white !important;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.custom-tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #dc3545 !important;
 }

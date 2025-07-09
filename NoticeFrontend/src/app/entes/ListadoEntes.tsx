@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import '../../../src/Styles.css';
+
 //import useFetchEntes from '../../hooks/useFetchEntes';
 import Spinner from "../../utils/Spinner";
 import { urlEntes } from "../../utils/endpoints";
@@ -7,9 +9,12 @@ import Paginacion from '../../utils/Paginacion';
 import FiltrarData from '../../utils/FiltrarData';
 import type { enteDTO } from '../../models/entes.model';
 import axios, { type AxiosResponse } from 'axios';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import { GrTooltip } from 'react-icons/gr';
+import FormularioEntes from './FormularioEntes';
 
 //Render de Tabla
-const TablaEntexx = () => {
+const ListadoEntes = () => {
 const [apiURL, setApiURL] = useState(urlEntes);  
 const [pagina, setPagina] = useState(1); //Determina la página activa (porque usaremos paginación)
 const [recordsPorPagina, setRecordsPorPagina] = useState(10); //Determina cuantos registros por página vamos a mostrar (por default 10)  
@@ -19,7 +24,8 @@ const [cargando, setCargando] = useState(true);
 const [data, setData] = useState<enteDTO[]>([]);
 const [error, setError] = useState<string | null>(null);
 const [filtrar, setFiltrar]=useState(''); //Recibe Indicación de Filtrar o no filtrar para decidir cual formato de apiUrl utilizar.
-
+const [showModal, setShowModal] = useState(false);
+const [accion, setAccion] = useState<'agregar' | 'editar'>('agregar');
 
 
 useEffect(() => {
@@ -80,16 +86,29 @@ const traerData = async () => {
   }
   
 
-  // const handleFiltrar = (termino) => {
-  //   console.log(`Desde tablaEnte termino:  ${termino}`)
-  //   setFiltrar(termino);
-  //   setPagina(1); // Resetear a página 1 al buscar
-  // };
+  function handleBorrar(id: number): void {
+    throw new Error('Function not implemented.');
+  }
 
-  //Cuando cargando sea false se ejecuta este return, que es el principal
+
+  function abrirFormulario(accion: string) {
+    console.log(`Acción: ${accion}`)
+    setShowModal(true);
+  }
+
   return (
     <>
     {/* Renderiza la tabla */}     
+
+            <button className='btn btn-primary mb-1'
+            onClick={()=>{
+              setAccion('agregar');
+              setShowModal(true);              
+            }}
+            >
+             Agregar nuevo  
+            </button>    
+
     <div className="my-full-width-split" >
       <div className='my-split-15'>
         <SelectOpcRegsPorPag             
@@ -108,8 +127,9 @@ const traerData = async () => {
         />
     </div>
     </div>
+
         <div>
-          <div>                      
+          <div>                   
           <table className="table table-responsive table-sm table-responsive table-sm my-compact-table table-striped table-hover">
             <thead className='my-theader'>
             <tr>
@@ -126,15 +146,32 @@ const traerData = async () => {
                     <td>{ente.nombre}</td>
                     <td>{ente.tipo}</td>
                     <td className='text-center'>
-                      <button className="btn btn-sm btn-outline-primary my-btn-compact"onClick={() => handleEditar(ente.id)}> Editar </button> 
-                      <span> </span>
-                      <button className="btn btn-sm btn-outline-danger my-btn-compact"onClick={() => handleEditar(ente.id)}> Borrar </button> 
+                      <button className="btn btn-sm btn-outline-primary my-btn-compact"
+                        onClick={() => handleEditar(ente.id)}> 
+                        <FaEdit className="me-1" /> </button> 
+                      <span/>
+                    
+                      <button className="btn btn-sm btn-outline-danger my-btn-compact"
+                      onClick={() => handleBorrar(ente.id)}
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      data-bs-custom-class="custom-tooltip"                
+                      title={`Borrar registro ${ente.id}`}                                       
+                      > 
+                      <FaTrash className="me-1" /> 
+                      </button>    
+
+                      
                     </td>
                    </tr>
                   ))}
             </tbody>
             </table>
-            <code>Total de Registros: {totalDeRegistros} </code>
+
+            <code>Total de Registros: {totalDeRegistros} {filtrar && ` filtrando por: ("${filtrar}")`}               
+            </code>
+            <div>
+            </div>
             
            {/* Componente de paginación  */}
            <Paginacion 
@@ -147,7 +184,50 @@ const traerData = async () => {
         </div>        
       <div>
     </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div 
+          className="modal fade show" 
+          style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.5)' }}
+        >
+          <div 
+            className="modal-dialog" 
+            style={{ 
+              width: '30%',
+              minWidth: '300px', // Para que no se haga muy pequeño
+              maxWidth: '500px', // Máximo ancho
+              margin: 'auto',
+              height: '70vh', // 70% del viewport height
+              marginTop: '15vh' // Centrado vertical
+            }}
+          >
+            <div className="modal-content" style={{ height: '100%' }}>
+              <div className="modal-header">
+                <h5 className="modal-title">
+                  {accion === 'agregar' ? 'Agregar nuevo' : 'Editar'}
+                </h5>
+                <button 
+                  type="button" 
+                  className="close" 
+                  onClick={() => setShowModal(false)}
+                >
+                  <span>&times;</span>
+                </button>
+              </div>
+              <div className="modal-body" style={{ overflowY: 'auto' }}>
+                <FormularioEntes
+                  accion={accion}
+                  onClose={() => setShowModal(false)} 
+                  show={false}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
     </>
   );
 };
-export default TablaEntexx;
+export default ListadoEntes;

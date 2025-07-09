@@ -8,34 +8,19 @@ const [searchTerm, setSearchTerm] = useState('');
 
 const [inputValue, setInputValue] = useState('');
 
+//console.log(`Clicando Filtrar buscaré: ${inputValue} )(modificaré url base *responder con instrucción al componente padre*)`);
   const handleFiltrar = () => {
     props.setFiltrar(inputValue); // ¡Aquí se modifica el estado del padre!
-    //console.log(`Clicando Filtrar buscaré: ${inputValue} )(modificaré url base *responder con instrucción al componente padre*)`);
   };
 
-
-// const handleSearch = () => {    
-//     //if (searchTerm.trim().length > 1) {
-//       //setIsSearching(true);
-//       console.log(`He clickado buscar; buscaré: ${searchTerm} )(modificar url base *responder con instrucción al compo padre*)`);
-//       //props.onSearchChange(searchTerm); // Notificar al padre
-//     //}
-//   };
 
  const handleClear = () => {
-    setSearchTerm('');
-    setSearchTerm('');
+    setSearchTerm('');    
     props.setFiltrar('');
-    setInputValue('');
-    //props.onSearchChange(''); // Notificar al padre que se limpió la búsqueda
+    setInputValue('');    
   };
 
-  const handleReset = () => {
-    handleClear();
-  };
-
-
-    return (
+return (
     <form >
       <div className="input-group">
         <input
@@ -45,7 +30,12 @@ const [inputValue, setInputValue] = useState('');
           placeholder="Filtrar..."
           value={inputValue}
           onChange={(e)=>setInputValue(e.target.value)}
-          //onKeyDown={handleInputChange}
+           onKeyDown={(e) => {
+          if (e.key === 'Enter') { //Controla el enter en el input text
+            e.preventDefault(); // Previene el comportamiento por defecto del formulario
+            handleFiltrar();
+          }
+        }}
         />
         <button
           className="btn btn-outline-success"
