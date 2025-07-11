@@ -3,20 +3,13 @@ const FormularioEntes = (props:FormularioEntesProps) => {
     
 
     console.log('props ',{
-        'show':props.show,
-        'accion':props.accion,
-        'onHide':props.onClose});
+        'f on Close':props.onClose,
+        'accion':props.accion});
 
 
     return (
         <>
-          <h2>Formulario para Agregar/Editar Entes</h2>
-          <hr/>
-            Acción: {props.accion} 
-            <p/>
-            Show: {props.show}
-            <p/>
-            onHide: {props.onClose}
+          <h2>Formulario para {props.accion.toUpperCase()} Entes</h2>
     <form>
       {/* Tus campos de formulario aquí */}
       <div className="form-group">

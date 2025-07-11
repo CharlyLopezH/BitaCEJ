@@ -249,3 +249,30 @@ table.table thead.my-theader th {
 .custom-tooltip.bs-tooltip-top .tooltip-arrow::before {
   border-top-color: #dc3545 !important;
 }
+
+.modal-dialog-custom {
+  margin: auto;
+  margin-bottom: auto;
+  margin-top: 15vh; /*Centrado vertical --> (100vh - 70vh) / 2 = 15vh */
+  width: 50%;
+  height: 70vh;
+  align-items: center;
+  justify-content: center;
+
+  /* No necesitas márgenes si usas flexbox en el padre */
+}
+
+.modal-content-custom {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-title-custom {
+  background-color: #15b86c;
+}
+
+/* modal-overrides.css */
+.modal-show-custom {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}

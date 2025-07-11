@@ -69,7 +69,8 @@ button:focus-visible {
 
 /* CSS personalizado (añadir en tu archivo de estilos global) */
 
-/* .modal-50vh-50vw {
+/* 
+.modal-50vh-50vw {
   width: 50vw;
   min-width: 50vw;
   max-width: 50vw;

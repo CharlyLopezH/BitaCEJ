@@ -96,6 +96,10 @@ const traerData = async () => {
     setShowModal(true);
   }
 
+  const cerrarVentana=()=> {
+    setShowModal(false)
+  }
+
   return (
     <>
     {/* Renderiza la tabla */}     
@@ -106,7 +110,7 @@ const traerData = async () => {
               setShowModal(true);              
             }}
             >
-             Agregar nuevo  
+             Agregar nuevo 
             </button>    
 
     <div className="my-full-width-split" >
@@ -185,32 +189,14 @@ const traerData = async () => {
       <div>
     </div>
 
-      {/* Modal */}
+      {/* Formulario Modal */}
       {showModal && (
-        <div 
-          className="modal fade show" 
-          style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.5)' }}
-        >
-          <div 
-            className="modal-dialog" 
-            style={{ 
-              width: '30%',
-              minWidth: '300px', // Para que no se haga muy pequeño
-              maxWidth: '500px', // Máximo ancho
-              margin: 'auto',
-              height: '70vh', // 70% del viewport height
-              marginTop: '15vh' // Centrado vertical
-            }}
-          >
-            <div className="modal-content" style={{ height: '100%' }}>
+        <div className="modal fade show modal-show-custom">
+          <div className="modal-dialog-custom" >
+            <div className="modal-content modal-content-custom">
               <div className="modal-header">
-                <h5 className="modal-title">
-                  {accion === 'agregar' ? 'Agregar nuevo' : 'Editar'}
-                </h5>
-                <button 
-                  type="button" 
-                  className="close" 
-                  onClick={() => setShowModal(false)}
+                <h5 className="modal-title"> {accion === 'agregar' ? 'Agregar nuevo ente' : 'Editar Ente'}</h5>
+                <button type="button" className="close" onClick={() => setShowModal(false)}
                 >
                   <span>&times;</span>
                 </button>
@@ -218,7 +204,7 @@ const traerData = async () => {
               <div className="modal-body" style={{ overflowY: 'auto' }}>
                 <FormularioEntes
                   accion={accion}
-                  onClose={() => setShowModal(false)} 
+                  onClose={() => cerrarVentana()} 
                   show={false}
                 />
               </div>
