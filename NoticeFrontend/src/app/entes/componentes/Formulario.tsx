@@ -4,15 +4,34 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Formulario = () => {
+
+interface OpcionTipo {
+  valor: string;  // Valor que se almacenará (OPD, SEC, etc.)
+  etiqueta: string; // Texto que se mostrará
+}
+
+
+const opcionesTipo: OpcionTipo[] = [
+  { valor: "OPD", etiqueta: "Organismo Público Descentralizado" },
+  { valor: "SEC", etiqueta: "Secretaría Ejecutiva" },
+  { valor: "FIDE", etiqueta: "Fideicomiso Público" },
+  { valor: "MUN", etiqueta: "Gobierno Municipal" },
+  { valor: "VAR", etiqueta: "Variante Administrativa" }
+];
+
   // Esquema de validación con Yup
   const validationSchema = Yup.object().shape({
     nombre: Yup.string()
       .required("El nombre es obligatorio")
       .min(2, "Mínimo 2 caracteres")
       .max(50, "Máximo 50 caracteres"),
-    email: Yup.string()
-      .required("El email es obligatorio")
-      .email("Formato de email inválido"),
+      
+  tipo: Yup.string()
+    .required("Debe seleccionar un tipo de ente")
+    .oneOf(
+      opcionesTipo.map(opcion => opcion.valor), // Valida contra los valores (no las etiquetas)
+      "Seleccione una opción válida"
+    )
   });
 
   // Configuración de Formik
@@ -27,6 +46,7 @@ const Formulario = () => {
         // 1. Convertir los datos a FormData
         const formData = new FormData();
         formData.append("Nombre", values.nombre); // ¡Case-sensitive!
+        formData.append("tipo", values.tipo); // ¡Faltaba este campo!
 
         // 2. Enviar con Axios (sin header Content-Type manual)
         const response = await axios.post(
@@ -34,9 +54,11 @@ const Formulario = () => {
           formData, // Va de un formulario
           {
             withCredentials: false,
-            timeout: 2000,
-            // Axios detecta FormData y asigna automáticamente:
-            // Content-Type: multipart/form-data; boundary=...
+            timeout: 1000,
+            //Axios detecta FormData y asigna automáticamente:
+            headers: {          
+          'Content-Type': 'application/json'
+    }
           }
         );
         console.log("Registro exitoso:", response.data);
@@ -104,6 +126,12 @@ const Formulario = () => {
          navigate(-1); // Esto equivale a setShowModal(false)
     }
 
+  const handleSubmit=(e: any)=>{
+    console.log('Contenido del arreglo:');
+  }
+
+  
+
   return (
   <div className="modal-overlay">
     <div className="modal-container">
@@ -148,27 +176,33 @@ const Formulario = () => {
             {/* Campo Tipo */}
             <div className="form-group">
               <label htmlFor="tipo">Tipo:</label>
-              <input                                            
-                className={`form-control ${
-                  formik.touched.tipo && formik.errors.tipo ? "is-invalid" : ""
-                }`}
-                id="tipo"
-                name="tipo"
-                type="text"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.tipo}
-              />
-              {formik.touched.tipo && formik.errors.tipo && (
-                <div className="invalid-feedback">
-                  {formik.errors.tipo}
-                </div>
-              )}
-            </div>
+<select
+  id="tipo"
+  name="tipo"
+  className={`form-select  ${
+    formik.touched.tipo && formik.errors.tipo ? 'is-invalid' : ''
+  }`}
+  onChange={formik.handleChange}
+  onBlur={formik.handleBlur}
+  value={formik.values.tipo} // Aquí se guarda el valor (OPD, SEC, etc.)
+>
+  <option value="">Seleccione un tipo de ente</option>
+  {opcionesTipo.map((opcion) => (
+    <option key={opcion.valor} value={opcion.valor}>
+      {opcion.etiqueta}
+    </option>
+  ))}
+</select>
+  {formik.touched.tipo && formik.errors.tipo && (
+    <div className="invalid-feedback">{formik.errors.tipo}</div>
+  )}
+ </div>
 
             {/* Botón de guardar */}
             <div className="modal-footer">
-              <button type="submit" className="btn btn-primary">
+              <button 
+                onClick={handleSubmit}
+                type="submit" className="btn btn-success">
                 Guardar
               </button>
             </div>

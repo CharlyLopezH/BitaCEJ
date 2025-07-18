@@ -11,7 +11,12 @@ import Formulario from './app/entes/componentes/Formulario'
 
 createRoot(document.getElementById('root')!).render(
   // <StrictMode>
+  
   <BrowserRouter>  
+  {/* Encabezado del Proyecto */}
+    <div className="container bg-my-header">
+      Sistema de Notificaciones 
+    </div>
     <Routes>
       <Route index element={<IndiceEntes />} />
       <Route path="formulario-ente" element={<Formulario/>} />
