@@ -3,3 +3,8 @@ export interface enteDTO {
     nombre: string;
     tipo?:string;    
 }
+
+export interface enteCreacionDTO {
+    nombre: string;
+    tipo?:string;    
+}

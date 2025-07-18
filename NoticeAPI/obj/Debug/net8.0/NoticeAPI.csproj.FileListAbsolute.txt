@@ -157,12 +157,6 @@ C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\scopedcss\
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets.build.json
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets.development.json
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets\msbuild.NoticeAPI.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets\msbuild.NoticeAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets\msbuild.build.NoticeAPI.props
-C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.NoticeAPI.props
-C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.NoticeAPI.props
-C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\NoticeAPI.csproj.Up2Date
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\NoticeAPI.dll
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\refint\NoticeAPI.dll
@@ -172,3 +166,8 @@ C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\ref\Notice
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\bin\Debug\net8.0\AutoMapper.dll
 C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\NoticeAPI.sourcelink.json
+C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Contra\sistemas\Desarrollos\2025\Notice\NoticeAPI\obj\Debug\net8.0\staticwebassets.build.json.cache

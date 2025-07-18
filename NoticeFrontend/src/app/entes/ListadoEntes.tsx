@@ -12,21 +12,27 @@ import axios, { type AxiosResponse } from 'axios';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { GrTooltip } from 'react-icons/gr';
 import FormularioEntes from './FormularioEntes';
+import EntesModalForm from './componentes/EntesModalForm';
+
+import { useNavigate } from 'react-router-dom';
 
 //Render de Tabla
 const ListadoEntes = () => {
-const [apiURL, setApiURL] = useState(urlEntes);  
-const [pagina, setPagina] = useState(1); //Determina la página activa (porque usaremos paginación)
-const [recordsPorPagina, setRecordsPorPagina] = useState(10); //Determina cuantos registros por página vamos a mostrar (por default 10)  
-const [totalDeRegistros, setTotalDeRegistros] = useState(0);
-const [totalDePaginas, setTotalDePaginas] = useState(0);
-const [cargando, setCargando] = useState(true);
-const [data, setData] = useState<enteDTO[]>([]);
-const [error, setError] = useState<string | null>(null);
-const [filtrar, setFiltrar]=useState(''); //Recibe Indicación de Filtrar o no filtrar para decidir cual formato de apiUrl utilizar.
-const [showModal, setShowModal] = useState(false);
-const [accion, setAccion] = useState<'agregar' | 'editar'>('agregar');
+  const [apiURL, setApiURL] = useState(urlEntes);  
+  const [pagina, setPagina] = useState(1); //Determina la página activa (porque usaremos paginación)
+  const [recordsPorPagina, setRecordsPorPagina] = useState(10); //Determina cuantos registros por página vamos a mostrar (por default 10)  
+  const [totalDeRegistros, setTotalDeRegistros] = useState(0);
+  const [totalDePaginas, setTotalDePaginas] = useState(0);
+  const [cargando, setCargando] = useState(true);
+  const [data, setData] = useState<enteDTO[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [filtrar, setFiltrar]=useState(''); //Recibe Indicación de Filtrar o no filtrar para decidir cual formato de apiUrl utilizar.
+  const [showModal, setShowModal] = useState(false);
+  const [accion, setAccion] = useState<'agregar' | 'editar'>('agregar');
+  
 
+
+  const navigate = useNavigate();
 
 useEffect(() => {
   // Actualiza apiURL basado en filtrar
@@ -100,11 +106,23 @@ const traerData = async () => {
     setShowModal(false)
   }
 
+
+  const handleClick=()=> {
+    navigate('/formulario-ente', { replace: false }) // Opción replace según necesidad
+    console.log('Manejando la función')
+  }
+
   return (
     <>
-    {/* Renderiza la tabla */}     
 
-            <button className='btn btn-primary mb-1'
+            <button className='btn btn-success btn-abrir-formulario m-1'
+            onClick={handleClick} // Opción replace según necesidad                
+            >
+             Formulario 2 
+            </button>    
+
+
+            <button className='btn btn-primary'
             onClick={()=>{
               setAccion('agregar');
               setShowModal(true);              
@@ -113,6 +131,7 @@ const traerData = async () => {
              Agregar nuevo 
             </button>    
 
+    {/* Renderiza la tabla */}     
     <div className="my-full-width-split" >
       <div className='my-split-15'>
         <SelectOpcRegsPorPag             
@@ -188,30 +207,22 @@ const traerData = async () => {
         </div>        
       <div>
     </div>
-
       {/* Formulario Modal */}
-      {showModal && (
-        <div className="modal fade show modal-show-custom">
-          <div className="modal-dialog-custom" >
-            <div className="modal-content modal-content-custom">
-              <div className="modal-header">
-                <h5 className="modal-title"> {accion === 'agregar' ? 'Agregar nuevo ente' : 'Editar Ente'}</h5>
-                <button type="button" className="close" onClick={() => setShowModal(false)}
-                >
-                  <span>&times;</span>
-                </button>
-              </div>
-              <div className="modal-body" style={{ overflowY: 'auto' }}>
-                <FormularioEntes
-                  accion={accion}
-                  onClose={() => cerrarVentana()} 
-                  show={false}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+
+    <EntesModalForm
+      showModal={showModal}
+      setShowModal={setShowModal}
+      accion={accion}
+      cerrarVentana={cerrarVentana}
+    // Props opcionales:
+    //customCloseIcon={<i className="fa fa-times-circle"></i>} // Ejemplo con Font Awesome
+    //modalTitle= "Título personalizado" {accion}
+    //className="mi-clase-adicional"
+/>
+
+    {/* Formulario Alternativo  */}
+
+
 
     </>
   );

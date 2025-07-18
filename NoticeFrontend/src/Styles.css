@@ -176,7 +176,7 @@ table.table thead.my-theader th {
 
 .my-label{
   font-family: 'Roboto', sans-serif;
-  font-size: 5px;
+  font-size: 10pt;
   color: rgb(48, 31, 112);  
 }
 
@@ -228,6 +228,8 @@ table.table thead.my-theader th {
 
 .form-control {
   height: 30px;
+  width: 100%;
+  min-width: 50px;
 }
 
 .form-control:focus {
@@ -251,6 +253,7 @@ table.table thead.my-theader th {
 }
 
 .modal-dialog-custom {
+  display: flex;
   margin: auto;
   margin-bottom: auto;
   margin-top: 15vh; /*Centrado vertical --> (100vh - 70vh) / 2 = 15vh */
@@ -275,4 +278,157 @@ table.table thead.my-theader th {
 .modal-show-custom {
   display: block;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.close {
+  opacity: 1;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+}
+
+.close i {
+  color: #6c757d; /* Color gris similar al original */
+  transition: color 0.3s;
+}
+
+.close:hover i {
+  color: #000; /* Color negro al hacer hover */
+}
+
+.btn-abrir-formulario {
+  /* padding: 8px 16px; */
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;  
+}
+
+.error-message {
+  color: red;
+  font-size: 0.7rem;
+  text-align: right;
+}
+
+.card-shadow-custom {
+  padding: 1rem;
+  padding-top: 0;
+  width: 600px;
+}
+
+/* Estilo para el botón de cerrar */
+.close {
+  font-size: 1.5rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* Estilo para el botón de cerrar */
+.btn-close-custom {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1.5rem;
+  color: #6c757d;
+  transition: color 0.2s;
+}
+
+/* Contenedor principal del modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  padding: 15px;
+}
+
+/* Contenedor responsivo */
+.modal-container {
+  width: 100%;
+  max-width: 500px; /* Ancho máximo en pantallas grandes */
+}
+
+/* Tarjeta del modal */
+.modal-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Encabezado */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* Botón de cerrar */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #495057;
+}
+
+/* Cuerpo del modal */
+.modal-body {
+  padding: 1rem;
+}
+
+/* Grupos de formulario */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* Pie del modal */
+.modal-footer {
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+  text-align: right;
+}
+
+/* Validación */
+.invalid-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+.is-invalid {
+  border-color: #dc3545;
 }
