@@ -1,10 +1,8 @@
 import { Field, Form, Formik } from "formik";
-import type { enteCreacionDTO } from "../../models/entes.model"
 
 const FormularioEntes = (props:FormularioEntesProps) => {
 
-
-    
+ 
 
     return (
    <>

@@ -1,23 +1,68 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { urlEntes } from "../../../utils/endpoints";
+import { useEffect, useState } from "react";
 
 const Formulario = () => {
+
+const location = useLocation();  
+const { id } = location.state || {};
+const [cargando, setCargando] = useState(!!id);
+const [error, setError] = useState(null);
+const [encabezado, setEncabezado] = useState('Nuevo Ente');
+
+
+//Inicializar variables en caso de edición
+const cargarDatos = async()=>{
+  try {
+    const response = await axios.get(`${urlEntes}/${id}`);
+    console.log('Datos recibidos para edición:', {data: response.data, valorSelect: opcionesTipo.map(op => op.valor)});
+
+              // Inicializa los campos del formulario con los datos recibidos
+      formik.setValues({
+        nombre:response.data.nombre,
+        tipo:response.data.tipo.trim(),     
+      });
+    
+  } catch (err) {
+    setError(error);
+  } finally {
+    setCargando(false);
+  }
+}
+
+
+
+useEffect(()=>{  
+  //console.log('UseEffect ingresando al formulario');  
+  if(!id) {return}; //Significa que no hay datos para cargar; por lo tanto no es una edición
+  
+  //Como sí es una edición se deben cargar los datos necesarios para inicializar componentes del formulario
+  setEncabezado('Editando Registro '+ (id))
+  console.log(`Editando Registro Id: ${id}`);
+//Llamado async para inicializar formulario  
+cargarDatos();
+},[id]);
+
+
 
 interface OpcionTipo {
   valor: string;  // Valor que se almacenará (OPD, SEC, etc.)
   etiqueta: string; // Texto que se mostrará
 }
 
-
 const opcionesTipo: OpcionTipo[] = [
   { valor: "OPD", etiqueta: "Organismo Público Descentralizado" },
   { valor: "SEC", etiqueta: "Secretaría Ejecutiva" },
   { valor: "FIDE", etiqueta: "Fideicomiso Público" },
   { valor: "MUN", etiqueta: "Gobierno Municipal" },
-  { valor: "VAR", etiqueta: "Variante Administrativa" }
+  { valor: "DESC", etiqueta: "Descentralizado" },
+  { valor: "VAR", etiqueta: "Otro tipo..." }
 ];
+
+
 
   // Esquema de validación con Yup
   const validationSchema = Yup.object().shape({
@@ -38,8 +83,10 @@ const opcionesTipo: OpcionTipo[] = [
   const formik = useFormik({
     initialValues: {
       nombre: "",
-      tipo: "",
+      tipo: "",      
+      ...(id ? { cargando: true } : {}) // Marcar que estamos cargando si hay ID
     },
+    enableReinitialize: true, // ¡Importante!
     validationSchema,
     onSubmit: async (values, { setSubmitting }) => {
       try {
@@ -48,19 +95,21 @@ const opcionesTipo: OpcionTipo[] = [
         formData.append("Nombre", values.nombre); // ¡Case-sensitive!
         formData.append("tipo", values.tipo); // ¡Faltaba este campo!
 
+
+      // 👇 Lógica para decidir entre POST (crear) y PUT (editar)
+      const url = id ? `${urlEntes}/${id}` : urlEntes; // Si hay ID, usa endpoint específico
+      const method = id ? 'put' : 'post'; // PUT para edición, POST para creación
+
         // 2. Enviar con Axios (sin header Content-Type manual)
-        const response = await axios.post(
-          "https://localhost:7015/entes",
-          formData, // Va de un formulario
-          {
-            withCredentials: false,
-            timeout: 1000,
-            //Axios detecta FormData y asigna automáticamente:
-            headers: {          
-          'Content-Type': 'application/json'
-    }
-          }
-        );
+        const response = await axios({
+          method,
+          url,
+          data:formData,
+          headers: { 'Content-Type': 'multipart/form-data' }, // Importante para FormData
+        });
+
+      console.log(id ? "Registro actualizado:" : "Registro creado:", response.data);
+      alert(`Ente ${id ? 'actualizado' : 'creado'} correctamente`);
         console.log("Registro exitoso:", response.data);
         alert("Ente registrado correctamente");
       } catch (error) {
@@ -130,15 +179,19 @@ const opcionesTipo: OpcionTipo[] = [
     console.log('Contenido del arreglo:');
   }
 
-  
+  console.log('urlEntes',{ urlEntes });
 
+
+  if (cargando) return <div>Cargando datos...</div>;
+  if (error) return <div className="text-danger">{error}</div>;
+  
   return (
   <div className="modal-overlay">
     <div className="modal-container">
       <div className="modal-card">
         {/* Encabezado del modal */}
         <div className="modal-header">
-          <h5 className="modal-title">Creando Nuevo Ente</h5>
+          <h5 className="modal-title">{encabezado}</h5>
           <button 
             type="button" 
             className="close-btn"
@@ -176,23 +229,34 @@ const opcionesTipo: OpcionTipo[] = [
             {/* Campo Tipo */}
             <div className="form-group">
               <label htmlFor="tipo">Tipo:</label>
+
+
+
+<div className="debug-info">
+  <p>Valor actual: {formik.values.tipo || ''}</p>  
+</div>
+
+
 <select
   id="tipo"
-  name="tipo"
+  name="tipo"    
   className={`form-select  ${
     formik.touched.tipo && formik.errors.tipo ? 'is-invalid' : ''
-  }`}
+  }`}  
   onChange={formik.handleChange}
   onBlur={formik.handleBlur}
-  value={formik.values.tipo} // Aquí se guarda el valor (OPD, SEC, etc.)
->
-  <option value="">Seleccione un tipo de ente</option>
+  value={formik.values.tipo || ""} // Mostrar el valor precargado    
+>  
+  <option value="">Selecciona un tipo de ente</option>
+
   {opcionesTipo.map((opcion) => (
     <option key={opcion.valor} value={opcion.valor}>
       {opcion.etiqueta}
     </option>
   ))}
 </select>
+
+
   {formik.touched.tipo && formik.errors.tipo && (
     <div className="invalid-feedback">{formik.errors.tipo}</div>
   )}

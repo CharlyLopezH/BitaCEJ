@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../../../src/Styles.css';
 
-//import useFetchEntes from '../../hooks/useFetchEntes';
 import Spinner from "../../utils/Spinner";
 import { urlEntes } from "../../utils/endpoints";
 import SelectOpcRegsPorPag from './componentes/SelectOpcRegsPorPag';
@@ -10,8 +9,6 @@ import FiltrarData from '../../utils/FiltrarData';
 import type { enteDTO } from '../../models/entes.model';
 import axios, { type AxiosResponse } from 'axios';
 import { FaEdit, FaTrash } from 'react-icons/fa';
-import { GrTooltip } from 'react-icons/gr';
-import FormularioEntes from './FormularioEntes';
 import EntesModalForm from './componentes/EntesModalForm';
 
 import { useNavigate } from 'react-router-dom';
@@ -30,8 +27,6 @@ const ListadoEntes = () => {
   const [showModal, setShowModal] = useState(false);
   const [accion, setAccion] = useState<'agregar' | 'editar'>('agregar');
   
-
-
   const navigate = useNavigate();
 
 useEffect(() => {
@@ -87,8 +82,16 @@ const traerData = async () => {
    if (error) return <div>Error: {error}</div>; //Manejo (default) del posible error en el intento del hook personalizado
   //Si la Variable de estado "cargando" está en true, es porque no ha llegado al finally del load...
   if (cargando) {  return ( <div> <Spinner/>  </div>    ); }
-  const handleEditar=(id: number)=> {
-    throw new Error(`Function not implemented.${id}`);
+
+
+  const handleClickEdicion=(id: number)=> {
+    console.log(`Llamando a formulario para editar rel registro ${ id }`)
+    alert(`Llamando a editar el registro con id: ${id}`);
+    //     navigate(`/formulario-ente/${id}`, {
+    //     state: { modo: 'edicion' } // Opcional: para identificar el modo
+    // });
+    navigate('/formulario-ente', {state: {id:id} } ) // Manda un objeto tipo state que será recuperado con useLocation en el componente llamado
+
   }
   
 
@@ -97,17 +100,12 @@ const traerData = async () => {
   }
 
 
-  function abrirFormulario(accion: string) {
-    console.log(`Acción: ${accion}`)
-    setShowModal(true);
-  }
-
   const cerrarVentana=()=> {
     setShowModal(false)
   }
 
 
-  const handleClick=()=> {
+  const handleClickCreacion=()=> {
     navigate('/formulario-ente', { replace: false }) // Opción replace según necesidad
     console.log('Manejando la función')
   }
@@ -116,9 +114,9 @@ const traerData = async () => {
     <>
 
             <button className='btn btn-success btn-abrir-formulario m-1'
-            onClick={handleClick} // Opción replace según necesidad                
+            onClick={handleClickCreacion} // Opción replace según necesidad                
             >
-             Formulario 2 
+             Nuevo Ente 
             </button>    
 
 
@@ -169,8 +167,9 @@ const traerData = async () => {
                     <td>{ente.nombre}</td>
                     <td>{ente.tipo}</td>
                     <td className='text-center'>
-                      <button className="btn btn-sm btn-outline-primary my-btn-compact"
-                        onClick={() => handleEditar(ente.id)}> 
+                      <button                       
+                       className="btn btn-sm btn-outline-primary my-btn-compact "                         
+                        onClick={() => handleClickEdicion(ente.id)}>                         
                         <FaEdit className="me-1" /> </button> 
                       <span/>
                     
@@ -209,7 +208,7 @@ const traerData = async () => {
     </div>
       {/* Formulario Modal */}
 
-    <EntesModalForm
+    <EntesModalForm 
       showModal={showModal}
       setShowModal={setShowModal}
       accion={accion}

@@ -6,8 +6,6 @@ const EntesModalForm = (props:EntesModalForm) => {
 
 if (!props.showModal) return null;
 const title = props.modalTitle || (props.accion === 'agregar' ? 'Registro de un nuevo Ente' : 'Editar Ente');
-//props.customCloseIcon=<i className="bi bi-x-circle fs-4"></i>
-
 return (
     <div className={`modal fade show modal-show-custom ${props.className}`}>
       <div className="modal-dialog-custom">

@@ -10,8 +10,7 @@ import Formulario from './app/entes/componentes/Formulario'
 
 
 createRoot(document.getElementById('root')!).render(
-  // <StrictMode>
-  
+ <StrictMode>
   <BrowserRouter>  
   {/* Encabezado del Proyecto */}
     <div className="container bg-my-header">
@@ -20,7 +19,8 @@ createRoot(document.getElementById('root')!).render(
     <Routes>
       <Route index element={<IndiceEntes />} />
       <Route path="formulario-ente" element={<Formulario/>} />
+      <Route path="/formulario-ente/:id" element={<Formulario />} />
     </Routes>
   </BrowserRouter>
-  // </StrictMode>,
+</StrictMode>,
 )
