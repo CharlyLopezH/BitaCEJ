@@ -5,7 +5,7 @@
 namespace NoticeAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class entes : Migration
+    public partial class Entes : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

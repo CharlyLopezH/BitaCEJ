@@ -1,0 +1,18 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace NoticeAPI.DTOs
+{
+    public class NotificacionDTO
+    {
+        public int Id { get; set; }
+        public string OficioMemo { get; set; } = null!;
+        public DateOnly FechaBitacora { get; set; }
+        public string Destinatario { get; set; } = null!;
+        public string Notificador { get; set; } = null!;
+        public string ExpedienteAsunto { get; set; } = null!;
+        public DateTime FechaAcuse { get; set; }
+        public DateTime FechaRegistro { get; set; } = DateTime.Now;
+        public string Capturo { get; set; } = null!;
+
+    }
+}

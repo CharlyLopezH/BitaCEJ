@@ -17,7 +17,6 @@ namespace NoticeAPI.Repositorios
             httpContext = httpContextAccessor.HttpContext!;
         }
 
-
         //Todo es todo, sin paginar si quiera.
         public async Task<List<Ente>> ObtenerTodos()
         {

@@ -18,8 +18,10 @@ namespace NoticeAPI
         {
         }
 
+        //Mapeo de las entidades a las tablas de la base de datos (**No ejecutar update-database en el PM si no están mapeadas)
         public required DbSet<Ente> Entes { get; set; }
-        
+        public required DbSet<Notificacion> Notificaciones { get; set; } 
+
 
         // Configuración manual cuando no hay inyección de dependencias
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

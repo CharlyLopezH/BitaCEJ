@@ -12,11 +12,8 @@ namespace NoticeAPI.Endpoints
     {
         public static RouteGroupBuilder MapEntes(this RouteGroupBuilder group)
         {
-            group.MapGet("/todos", ObtenerTodos)
-                .CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("entes-get"));
-            group.MapGet("filtrarDataPag/{cadena}", FiltrarEntes)
-                .CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("entes-get")); //Endpoint con filtrado de dato y paginacion (string)
-
+            group.MapGet("/todos", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("entes-get"));
+            group.MapGet("filtrarDataPag/{cadena}", FiltrarEntes).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("entes-get")); //Endpoint con filtrado de dato y paginacion (string)
             group.MapPost("/", CrearEnte);
 
             //Endpoint genérico con paginación

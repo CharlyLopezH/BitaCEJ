@@ -12,7 +12,7 @@ namespace NoticeAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20250520172043_entes")]
-    partial class entes
+    partial class Entes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

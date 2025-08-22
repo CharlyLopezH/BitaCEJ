@@ -46,6 +46,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program));
 
 //Repositorios
+builder.Services.AddScoped<IRepositorioNotificaciones, RepositorioNotificaciones>();
 builder.Services.AddScoped<IRepositorioEntes, RepositorioEntes>();
 builder.Services.AddHttpContextAccessor();
 
@@ -63,5 +64,6 @@ app.UseOutputCache();
 
 app.MapGet("/test-cors", () => "CORS funciona!").RequireCors("CorsPolicy");
 app.MapGet("/", () => "Hello World! ").RequireCors("CorsPolicy");
-app.MapGroup("/entes").MapEntes();
+app.MapGroup("/notificaciones").MapNotificaciones();
+//app.MapGroup("/entes").MapEntes();
 app.Run();

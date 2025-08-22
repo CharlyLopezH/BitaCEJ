@@ -11,6 +11,7 @@ namespace NoticeAPI.Utilidades
 
             CreateMap<CrearEnteDTO, Ente>();
             CreateMap<Ente, EnteDTO>();
+            CreateMap<Notificacion, NotificacionDTO>();
         }
 
     }

@@ -5,306 +5,6 @@
     "version": "1.0"
   },
   "paths": {
-    "/entes/todos": {
-      "get": {
-        "tags": [
-          "EntesEndpoints"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EnteDTO"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/entes/filtrarDataPag/{cadena}": {
-      "get": {
-        "tags": [
-          "EntesEndpoints"
-        ],
-        "parameters": [
-          {
-            "name": "cadena",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pagina",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "recordsPorPagina",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EnteDTO"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/entes": {
-      "post": {
-        "tags": [
-          "EntesEndpoints"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CrearEnteDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EnteDTO"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "EntesEndpoints"
-        ],
-        "parameters": [
-          {
-            "name": "pagina",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "recordsPorPagina",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EnteDTO"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/entes/obtenerPorNombre/{nombre}": {
-      "get": {
-        "tags": [
-          "EntesEndpoints"
-        ],
-        "parameters": [
-          {
-            "name": "nombre",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EnteDTO"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/entes/{id}": {
-      "get": {
-        "tags": [
-          "EntesEndpoints"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EnteDTO"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "EntesEndpoints"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "EntesEndpoints"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/CrearEnteDTO"
-              }
-            },
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/CrearEnteDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
-    "/entes/filtrarSinPaginar/{cadena}": {
-      "get": {
-        "tags": [
-          "EntesEndpoints"
-        ],
-        "parameters": [
-          {
-            "name": "cadena",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EnteDTO"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/test-cors": {
       "get": {
         "tags": [
@@ -342,36 +42,68 @@
           }
         }
       }
+    },
+    "/notificaciones/todas": {
+      "get": {
+        "tags": [
+          "NotificacionesEndpoints"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotificacionDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "CrearEnteDTO": {
-        "type": "object",
-        "properties": {
-          "nombre": {
-            "type": "string",
-            "nullable": true
-          },
-          "tipo": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "EnteDTO": {
+      "NotificacionDTO": {
         "type": "object",
         "properties": {
           "id": {
             "type": "integer",
             "format": "int32"
           },
-          "nombre": {
+          "oficioMemo": {
             "type": "string",
             "nullable": true
           },
-          "tipo": {
+          "fechaBitacora": {
+            "type": "string",
+            "format": "date"
+          },
+          "destinatario": {
+            "type": "string",
+            "nullable": true
+          },
+          "notificador": {
+            "type": "string",
+            "nullable": true
+          },
+          "expedienteAsunto": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaAcuse": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "capturo": {
             "type": "string",
             "nullable": true
           }
