@@ -3,44 +3,28 @@
   "WorkspaceRootPath": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\utilidades\\automapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:utilidades\\automapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\endpoints\\entesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:endpoints\\entesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\endpoints\\notificacionesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:endpoints\\notificacionesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\repositorios\\repositorionotificaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:repositorios\\repositorionotificaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\repositorios\\repositorioentes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:repositorios\\repositorioentes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\migrations\\20250821201849_agregarnotificaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:migrations\\20250821201849_agregarnotificaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\entidades\\notificacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:entidades\\notificacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\dtos\\crearnotifcaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:dtos\\crearnotifcaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\endpoints\\entesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:endpoints\\entesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\repositorios\\irepositorionotificaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:repositorios\\irepositorionotificaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\dtos\\entedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:dtos\\entedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\dtos\\notificaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:dtos\\notificaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,130 +46,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AutomapperProfiles.cs",
-              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Utilidades\\AutomapperProfiles.cs",
-              "RelativeDocumentMoniker": "Utilidades\\AutomapperProfiles.cs",
-              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Utilidades\\AutomapperProfiles.cs",
-              "RelativeToolTip": "Utilidades\\AutomapperProfiles.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvw0AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T21:13:01.863Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RepositorioEntes.cs",
-              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\RepositorioEntes.cs",
-              "RelativeDocumentMoniker": "Repositorios\\RepositorioEntes.cs",
-              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\RepositorioEntes.cs",
-              "RelativeToolTip": "Repositorios\\RepositorioEntes.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T20:31:57.868Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAEMAAAACAAAAAAAAAA==",
+              "Title": "20250821201849_AgregarNotificaciones.cs",
+              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Migrations\\20250821201849_AgregarNotificaciones.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250821201849_AgregarNotificaciones.cs",
+              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Migrations\\20250821201849_AgregarNotificaciones.cs",
+              "RelativeToolTip": "Migrations\\20250821201849_AgregarNotificaciones.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T20:29:34.463Z",
+              "WhenOpened": "2025-08-27T14:25:36.658Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Notificacion.cs",
               "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Entidades\\Notificacion.cs",
               "RelativeDocumentMoniker": "Entidades\\Notificacion.cs",
               "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Entidades\\Notificacion.cs",
               "RelativeToolTip": "Entidades\\Notificacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvw8AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T20:13:56.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "NotificacionDTO.cs",
-              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\DTOs\\NotificacionDTO.cs",
-              "RelativeDocumentMoniker": "DTOs\\NotificacionDTO.cs",
-              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\DTOs\\NotificacionDTO.cs",
-              "RelativeToolTip": "DTOs\\NotificacionDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T20:11:15.93Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EnteDTO.cs",
-              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\DTOs\\EnteDTO.cs",
-              "RelativeDocumentMoniker": "DTOs\\EnteDTO.cs",
-              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\DTOs\\EnteDTO.cs",
-              "RelativeToolTip": "DTOs\\EnteDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T20:15:59.225Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NotificacionesEndpoints.cs",
-              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\NotificacionesEndpoints.cs",
-              "RelativeDocumentMoniker": "Endpoints\\NotificacionesEndpoints.cs",
-              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\NotificacionesEndpoints.cs",
-              "RelativeToolTip": "Endpoints\\NotificacionesEndpoints.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T19:28:33.376Z",
+              "WhenOpened": "2025-08-27T14:25:05.894Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "EntesEndpoints.cs",
-              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\EntesEndpoints.cs",
-              "RelativeDocumentMoniker": "Endpoints\\EntesEndpoints.cs",
-              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\EntesEndpoints.cs",
-              "RelativeToolTip": "Endpoints\\EntesEndpoints.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAUAAAAAAAAAA==",
+              "Title": "CrearNotifcacionDTO.cs",
+              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\DTOs\\CrearNotifcacionDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\CrearNotifcacionDTO.cs",
+              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\DTOs\\CrearNotifcacionDTO.cs",
+              "RelativeToolTip": "DTOs\\CrearNotifcacionDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwYAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T16:34:24.626Z",
+              "WhenOpened": "2025-08-26T21:24:46.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T21:04:44.531Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "RepositorioNotificaciones.cs",
-              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\RepositorioNotificaciones.cs",
-              "RelativeDocumentMoniker": "Repositorios\\RepositorioNotificaciones.cs",
-              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\RepositorioNotificaciones.cs",
-              "RelativeToolTip": "Repositorios\\RepositorioNotificaciones.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAABJAAAAAAAAAA==",
+              "Title": "EntesEndpoints.cs",
+              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\EntesEndpoints.cs",
+              "RelativeDocumentMoniker": "Endpoints\\EntesEndpoints.cs",
+              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\EntesEndpoints.cs",
+              "RelativeToolTip": "Endpoints\\EntesEndpoints.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T16:45:14.938Z",
+              "WhenOpened": "2025-08-26T21:04:39.429Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "IRepositorioNotificaciones.cs",
               "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\IRepositorioNotificaciones.cs",
               "RelativeDocumentMoniker": "Repositorios\\IRepositorioNotificaciones.cs",
               "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\IRepositorioNotificaciones.cs",
               "RelativeToolTip": "Repositorios\\IRepositorioNotificaciones.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-22T16:14:21.021Z",
               "EditorCaption": ""

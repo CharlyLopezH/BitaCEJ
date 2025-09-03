@@ -15,16 +15,12 @@ namespace NoticeAPI.Endpoints
             group.MapGet("/todos", ObtenerTodos).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("entes-get"));
             group.MapGet("filtrarDataPag/{cadena}", FiltrarEntes).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("entes-get")); //Endpoint con filtrado de dato y paginacion (string)
             group.MapPost("/", CrearEnte);
-
             //Endpoint genérico con paginación
             group.MapGet("/", Obtener).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("entes-get"));
-
             group.MapGet("obtenerPorNombre/{nombre}", ObtenerPorNombre);            
-
             group.MapGet("/{id:int}", ObtenerPorId);
             group.MapDelete("/{id:int}", Borrar);            
             group.MapPut("/{id:int}", Actualizar).DisableAntiforgery();
-
             group.MapGet("filtrarSinPaginar/{cadena}", FiltrarSinPaginar);
 
 
@@ -107,7 +103,7 @@ namespace NoticeAPI.Endpoints
             return TypedResults.Ok(enteDTO);
         }
 
-        static async Task<Results<NoContent, NotFound>> Actualizar(int id, [FromForm] CrearEnteDTO crearAdscripcionDTO,
+        static async Task<Results<NoContent, NotFound>> Actualizar(int id, [FromForm] CrearEnteDTO crearEnteDTO,
           IRepositorioEntes repositorio, IOutputCacheStore outputCacheStore, IMapper mapper)
         {
             var enteDB = await repositorio.ObtenerPorId(id);
@@ -117,7 +113,7 @@ namespace NoticeAPI.Endpoints
                 return TypedResults.NotFound();
             }
 
-            var enteActualizar = mapper.Map<Ente>(crearAdscripcionDTO);
+            var enteActualizar = mapper.Map<Ente>(crearEnteDTO);
             enteActualizar.Id = id;
             await repositorio.Actualizar(enteActualizar);
             await outputCacheStore.EvictByTagAsync("entes-get", default);

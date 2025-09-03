@@ -13,7 +13,7 @@ namespace NoticeAPI.Entidades
             public int Id { get; set; }
 
         [Required]
-        public string? OficioMemo { get; set; }
+        public string OficioMemo { get; set; } = null!;
 
         [Required]         
          public DateOnly FechaBitacora { get; set; }

@@ -14,12 +14,7 @@ namespace NoticeAPI.Repositorios
         Task Borrar(int id);
         Task<bool> Existe(int id);
         Task<Notificacion?> ObtenerPorId(int id);
-        Task<List<Notificacion>> FiltrarRegistros(string memo, PaginacionDTO paginacionDTO);
-
-        Task<List<Notificacion>> FiltrarRegistros(string memo);
-        //Task<List<Notificacion>> FiltrarRegistrosPag(string cadena, PaginacionDTO paginacionDTO);
-        Task<List<Notificacion>> FiltrarSinPaginar(string cadena);
-        //Filtro de Notificacions Sin paginación, recibe una cadena de búsqueda y un DTO para paginación                
+        Task<List<Notificacion>> FiltrarRegistros(string memo, PaginacionDTO paginacionDTO);      
 
     }
 }

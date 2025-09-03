@@ -63,7 +63,7 @@ app.UseOutputCache();
 
 
 app.MapGet("/test-cors", () => "CORS funciona!").RequireCors("CorsPolicy");
-app.MapGet("/", () => "Hello World! ").RequireCors("CorsPolicy");
+//app.MapGet("/", () => "Hello World! ").RequireCors("CorsPolicy");
+app.MapGroup("/entes").MapEntes();
 app.MapGroup("/notificaciones").MapNotificaciones();
-//app.MapGroup("/entes").MapEntes();
 app.Run();
