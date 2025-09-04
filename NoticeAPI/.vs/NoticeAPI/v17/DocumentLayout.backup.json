@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\repositorios\\repositorionotificaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:repositorios\\repositorionotificaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|c:\\contra\\sistemas\\desarrollos\\2025\\notice\\noticeapi\\migrations\\20250821201849_agregarnotificaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E972D3C5-BB99-41C7-9F68-C4062F18E7CE}|NoticeAPI.csproj|solutionrelative:migrations\\20250821201849_agregarnotificaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,6 +51,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RepositorioNotificaciones.cs",
+              "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\RepositorioNotificaciones.cs",
+              "RelativeDocumentMoniker": "Repositorios\\RepositorioNotificaciones.cs",
+              "ToolTip": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\RepositorioNotificaciones.cs",
+              "RelativeToolTip": "Repositorios\\RepositorioNotificaciones.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAiwBUAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T20:34:09.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "20250821201849_AgregarNotificaciones.cs",
               "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Migrations\\20250821201849_AgregarNotificaciones.cs",
               "RelativeDocumentMoniker": "Migrations\\20250821201849_AgregarNotificaciones.cs",
@@ -54,12 +71,11 @@
               "RelativeToolTip": "Migrations\\20250821201849_AgregarNotificaciones.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T14:25:36.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T14:25:36.658Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Notificacion.cs",
               "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Entidades\\Notificacion.cs",
               "RelativeDocumentMoniker": "Entidades\\Notificacion.cs",
@@ -67,12 +83,11 @@
               "RelativeToolTip": "Entidades\\Notificacion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvw8AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T14:25:05.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T14:25:05.894Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CrearNotifcacionDTO.cs",
               "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\DTOs\\CrearNotifcacionDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\CrearNotifcacionDTO.cs",
@@ -80,12 +95,11 @@
               "RelativeToolTip": "DTOs\\CrearNotifcacionDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwYAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T21:24:46.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-26T21:24:46.315Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -93,12 +107,11 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T21:04:44.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-26T21:04:44.531Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "EntesEndpoints.cs",
               "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Endpoints\\EntesEndpoints.cs",
               "RelativeDocumentMoniker": "Endpoints\\EntesEndpoints.cs",
@@ -106,12 +119,11 @@
               "RelativeToolTip": "Endpoints\\EntesEndpoints.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T21:04:39.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-26T21:04:39.429Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "IRepositorioNotificaciones.cs",
               "DocumentMoniker": "C:\\Contra\\sistemas\\Desarrollos\\2025\\Notice\\NoticeAPI\\Repositorios\\IRepositorioNotificaciones.cs",
               "RelativeDocumentMoniker": "Repositorios\\IRepositorioNotificaciones.cs",
@@ -119,8 +131,7 @@
               "RelativeToolTip": "Repositorios\\IRepositorioNotificaciones.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T16:14:21.021Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-22T16:14:21.021Z"
             }
           ]
         }

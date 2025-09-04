@@ -71,8 +71,7 @@
               "RelativeToolTip": "Migrations\\20250821201849_AgregarNotificaciones.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T14:25:36.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T14:25:36.658Z"
             },
             {
               "$type": "Document",
@@ -84,8 +83,7 @@
               "RelativeToolTip": "Entidades\\Notificacion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvw8AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T14:25:05.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T14:25:05.894Z"
             },
             {
               "$type": "Document",
@@ -97,8 +95,7 @@
               "RelativeToolTip": "DTOs\\CrearNotifcacionDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwYAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T21:24:46.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-26T21:24:46.315Z"
             },
             {
               "$type": "Document",
@@ -110,8 +107,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T21:04:44.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-26T21:04:44.531Z"
             },
             {
               "$type": "Document",
@@ -123,8 +119,7 @@
               "RelativeToolTip": "Endpoints\\EntesEndpoints.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T21:04:39.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-26T21:04:39.429Z"
             },
             {
               "$type": "Document",
@@ -136,8 +131,7 @@
               "RelativeToolTip": "Repositorios\\IRepositorioNotificaciones.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T16:14:21.021Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-22T16:14:21.021Z"
             }
           ]
         }

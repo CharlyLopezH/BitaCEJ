@@ -1,4 +1,4 @@
-import { ErrorMessage, Field, Form, Formik, type FormikHelpers } from "formik";
+import { ErrorMessage, Field, Form, Formik, type FormikProps} from "formik";
 import * as Yup from "yup";
 import type { crearNotificacionDTO } from "../../../../models/notificaciones.model";
 import "../../../../Styles.css";
@@ -12,11 +12,11 @@ const NotificacionForm = (props: notificacionFormProps) => {
 
   // Valores iniciales del formulario
   const initialValues: crearNotificacionDTO = {
-    oficioMemo: "prb001",
+    oficioMemo: "",
     fechaBitacora: formatMesNumero(new Date()),
-    destinatario: "Juan Antonio Pérez Pérez",
-    notificador: "Anselmo Quintanilla",
-    expedienteAsunto: "17/2023-S02SEA",
+    destinatario: "",
+    notificador: "",
+    expedienteAsunto: "",
     fechaAcuse: formatMesNumero(new Date()),
     fechaRegistro: formatMesNumero(new Date()),
     capturo: "CapturadorEnTurno",
@@ -42,14 +42,16 @@ const NotificacionForm = (props: notificacionFormProps) => {
       </div>
       <hr className="mt-0" />
       <Formik
+        innerRef={props.formRef}
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={valores=>{
+        onSubmit={(valores)=>{
           console.log(`Recibiendo estos Valores, preparado para Salvar: ${{valores}}`, JSON.stringify(valores, null, 2));  
           props.onHandleSubmit(valores);        
         }}
         
       >
+        {({ resetForm }) => (
         <Form>
           <div className="form-group">
             {/* Oficio */}
@@ -126,9 +128,13 @@ const NotificacionForm = (props: notificacionFormProps) => {
             </div>
             <hr className="mb-0"/>
           </div>
-        <button className="btn btn-success m-2" type="submit">Salvar</button>
-        <button className="btn btn-danger">Cancelar</button>          
+        <button className="btn btn-outline-primary m-2" 
+                          type="submit" disabled={props.loading}>{props.loading ? 'Guardando...' : 'Salvar'}</button>
+        <button className="btn btn-outline-secondary" 
+        onClick={()=> {resetForm();}}
+        >Cancelar</button>          
         </Form>
+        )}
       </Formik>
     </>
   );
@@ -137,4 +143,6 @@ export default NotificacionForm;
 
 interface notificacionFormProps {
   onHandleSubmit: (values: crearNotificacionDTO) => void;
+  loading: boolean; // ← Nueva prop  
+  formRef: React.RefObject<FormikProps<crearNotificacionDTO> | null>;
 }
