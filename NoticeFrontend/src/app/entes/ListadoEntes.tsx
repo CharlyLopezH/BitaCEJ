@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../../../src/Styles.css';
-
-import Spinner from "../../utils/Spinner";
+//import Spinner from "../../utils/Spinner";
 import { urlEntes } from "../../utils/endpoints";
 import SelectOpcRegsPorPag from './componentes/SelectOpcRegsPorPag';
 import Paginacion from '../../utils/Paginacion';
@@ -9,7 +8,7 @@ import FiltrarData from '../../utils/FiltrarData';
 import type { enteDTO } from '../../models/entes.model';
 import axios, { type AxiosResponse } from 'axios';
 import { FaEdit, FaTrash } from 'react-icons/fa';
-import EntesModalForm from './componentes/EntesModalForm';
+
 
 import { useNavigate } from 'react-router-dom';
 
@@ -20,12 +19,12 @@ const ListadoEntes = () => {
   const [recordsPorPagina, setRecordsPorPagina] = useState(10); //Determina cuantos registros por página vamos a mostrar (por default 10)  
   const [totalDeRegistros, setTotalDeRegistros] = useState(0);
   const [totalDePaginas, setTotalDePaginas] = useState(0);
-  const [cargando, setCargando] = useState(true);
+  //const [cargando, setCargando] = useState(true);
   const [data, setData] = useState<enteDTO[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  //const [error, setError] = useState<string | null>(null);
   const [filtrar, setFiltrar]=useState(''); //Recibe Indicación de Filtrar o no filtrar para decidir cual formato de apiUrl utilizar.
-  const [showModal, setShowModal] = useState(false);
-  const [accion, setAccion] = useState<'agregar' | 'editar'>('agregar');
+  //const [showModal, setShowModal] = useState(false);
+  //const [accion, setAccion] = useState<'agregar' | 'editar'>('agregar');
   
   const navigate = useNavigate();
 
@@ -74,14 +73,13 @@ const traerData = async () => {
   } catch (error) {
     console.error('Error al obtener datos:', error);
   } finally {
-    setCargando(false);
+    //setCargando(false);
   }
 }
-
   
-   if (error) return <div>Error: {error}</div>; //Manejo (default) del posible error en el intento del hook personalizado
-  //Si la Variable de estado "cargando" está en true, es porque no ha llegado al finally del load...
-  if (cargando) {  return ( <div> <Spinner/>  </div>    ); }
+  //  if (error) return <div>Error: {error}</div>; //Manejo (default) del posible error en el intento del hook personalizado
+  // //Si la Variable de estado "cargando" está en true, es porque no ha llegado al finally del load...
+  // if (cargando) {  return ( <div> <Spinner/>  </div>    ); }
 
 
   const handleClickEdicion=(id: number)=> {
@@ -94,15 +92,14 @@ const traerData = async () => {
 
   }
   
+  // function handleBorrar(id: number): void {
+  //   throw new Error('Function not implemented.');
+  // }
 
-  function handleBorrar(id: number): void {
-    throw new Error('Function not implemented.');
-  }
 
-
-  const cerrarVentana=()=> {
-    setShowModal(false)
-  }
+  // const cerrarVentana=()=> {
+  //   setShowModal(false)
+  // }
 
 
   const handleClickCreacion=()=> {
@@ -122,8 +119,8 @@ const traerData = async () => {
 
             <button className='btn btn-primary'
             onClick={()=>{
-              setAccion('agregar');
-              setShowModal(true);              
+              // setAccion('agregar');
+              // setShowModal(true);              
             }}
             >
              Agregar nuevo 
@@ -174,7 +171,7 @@ const traerData = async () => {
                       <span/>
                     
                       <button className="btn btn-sm btn-outline-danger my-btn-compact"
-                      onClick={() => handleBorrar(ente.id)}
+                      //onClick={}
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
                       data-bs-custom-class="custom-tooltip"                
@@ -207,21 +204,6 @@ const traerData = async () => {
       <div>
     </div>
       {/* Formulario Modal */}
-
-    <EntesModalForm 
-      showModal={showModal}
-      setShowModal={setShowModal}
-      accion={accion}
-      cerrarVentana={cerrarVentana}
-    // Props opcionales:
-    //customCloseIcon={<i className="fa fa-times-circle"></i>} // Ejemplo con Font Awesome
-    //modalTitle= "Título personalizado" {accion}
-    //className="mi-clase-adicional"
-/>
-
-    {/* Formulario Alternativo  */}
-
-
 
     </>
   );

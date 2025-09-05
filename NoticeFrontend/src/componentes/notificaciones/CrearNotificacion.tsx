@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
 import axios from "axios";
 import NotificacionForm from "./NotificacionForm";
-import type { crearNotificacionDTO } from "../../../../models/notificaciones.model";
-import { urlNotificaciones } from "../../../../utils/endpoints";
-import {convertirFechaAISO} from "../../../../utils/utilerias"
 import Swal from "sweetalert2";
-import { handleApiError } from "../../../../utils/errorHandler";
 import type { FormikProps } from "formik";
+import type { crearNotificacionDTO } from "../../models/notificaciones.model";
+import { convertirFechaAISO } from "../../utils/utilerias";
+import { urlNotificaciones } from "../../utils/endpoints";
+import { handleApiError } from "../../utils/errorHandler";
 
 const CrearNotificacion=()=> {
 

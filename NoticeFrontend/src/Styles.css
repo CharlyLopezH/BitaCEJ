@@ -87,7 +87,7 @@
 
 /* Personalizados */
 .bg-my-header {
-    background-color: #a8e6cf; /* Color turquesa claro */
+    background-color: #101111; /* Color turquesa claro */
     border-radius: 0.15rem;   /* Equivalente a 'rounded' de Bootstrap (6px) */
     padding: .8rem;           /* Equivalente a 'p-4' de Bootstrap (24px) */
     margin-bottom: 1px;     /* Equivalente a 'mb-4' de Bootstrap */    
@@ -101,7 +101,7 @@
     unicode-bidi: isolate;
     margin-bottom: 2px;
     max-width: 100%;
-    color: blue;
+    color: whitesmoke;
 }
 
 .div-center {
