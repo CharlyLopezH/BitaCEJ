@@ -373,6 +373,46 @@
             }
           }
         }
+      },
+      "get": {
+        "tags": [
+          "NotificacionesEndpoints"
+        ],
+        "parameters": [
+          {
+            "name": "pagina",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "recordsPorPagina",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotificacionDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/notificaciones/{id}": {
@@ -562,7 +602,7 @@
           },
           "fechaAcuse": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "fechaRegistro": {
             "type": "string",
@@ -622,7 +662,7 @@
           },
           "fechaAcuse": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
           },
           "fechaRegistro": {
             "type": "string",

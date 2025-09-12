@@ -18,6 +18,11 @@ namespace NoticeAPI.Endpoints
             group.MapGet("/todas", ObtenerTodas).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(30)).Tag("notificaciones-get"));
             //Endpoint para crear una notificación
             group.MapPost("/", CrearNotificacion);
+
+            //Regresa todas las notificaciones *Paginadas* y con cache por 15 seg.
+            group.MapGet("/", Obtener).CacheOutput(c => c.Expire(TimeSpan.FromSeconds(15)).Tag("notificaciones-get"));
+
+
             //Endpoint para obtener notificaciones por Id
             group.MapGet("/{id:int}", ObtenerPorId);
             //Endpoint con filtrado de dato y paginacion (string)
@@ -49,6 +54,15 @@ namespace NoticeAPI.Endpoints
             await outputCacheStore.EvictByTagAsync("notificaciones-get", default);
             var notificacionDTO = mapper.Map<NotificacionDTO>(notificacion);
             return TypedResults.Created($"/notificaciones/{id}", notificacionDTO);
+        }
+
+        //Regresa lista *paginada* de notificaciones En el API tener cuidado de que estos parámetros coincidan con los valores iniciales del UI
+        static async Task<Ok<List<NotificacionDTO>>> Obtener(IRepositorioNotificaciones repositorio, IMapper mapper, int pagina = 1, int recordsPorPagina = 10)
+        {
+            var paginacion = new PaginacionDTO { Pagina = pagina, RecordsPorPagina = recordsPorPagina };
+            var notificaciones = await repositorio.Obtener(paginacion);
+            var notificacionesDTO = mapper.Map<List<NotificacionDTO>>(notificaciones);
+            return TypedResults.Ok(notificacionesDTO);
         }
 
         //Obtiene una notificación por Id

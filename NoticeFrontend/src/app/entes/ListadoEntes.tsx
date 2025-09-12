@@ -51,8 +51,7 @@ useEffect(()=>{
 const traerData = async () => {
   // Construye la URL base con o sin filtro
   let urlBase = apiURL;
-  if (filtrar.length > 0) {
-  }
+  if (filtrar.length > 0) { }
 
   // Parámetros de paginación a la url base
   const urlFinal = `${urlBase}?pagina=${pagina}&recordsPorPagina=${recordsPorPagina}`;  
@@ -147,9 +146,8 @@ const traerData = async () => {
     </div>
 
         <div>
-          <div>                   
-          <table className="table table-responsive table-sm table-responsive table-sm my-compact-table table-striped table-hover">
-            <thead className='my-theader'>
+          <table className="table table-responsive table-sm table-responsive  my-compact-table table-striped table-hover">
+            <thead>
             <tr>
              <td>ID</td>
              <td>Nombre</td>
@@ -159,17 +157,16 @@ const traerData = async () => {
            </thead>
             <tbody>
               {data.map((ente) => (
-                   <tr key={ente.id}>
+                  <tr key={ente.id}>
                     <td>{ente.id}</td>
                     <td>{ente.nombre}</td>
                     <td>{ente.tipo}</td>
                     <td className='text-center'>
-                      <button                       
+                    <button                       
                        className="btn btn-sm btn-outline-primary my-btn-compact "                         
                         onClick={() => handleClickEdicion(ente.id)}>                         
                         <FaEdit className="me-1" /> </button> 
                       <span/>
-                    
                       <button className="btn btn-sm btn-outline-danger my-btn-compact"
                       //onClick={}
                       data-bs-toggle="tooltip"
@@ -189,7 +186,6 @@ const traerData = async () => {
 
             <code>Total de Registros: {totalDeRegistros} {filtrar && ` filtrando por: ("${filtrar}")`}               
             </code>
-            <div>
             </div>
             
            {/* Componente de paginación  */}
@@ -199,8 +195,6 @@ const traerData = async () => {
            radio={3}
            onChange={(nuevaPagina) => setPagina(nuevaPagina)}
            />
-          </div>
-        </div>        
       <div>
     </div>
       {/* Formulario Modal */}

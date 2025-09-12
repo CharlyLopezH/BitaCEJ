@@ -266,6 +266,35 @@
   },
   {
     "ContainingType": "NoticeAPI.Endpoints.NotificacionesEndpoints",
+    "Method": "Obtener",
+    "RelativePath": "notificaciones/",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "recordsPorPagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NoticeAPI.DTOs.NotificacionDTO, NoticeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NoticeAPI.Endpoints.NotificacionesEndpoints",
     "Method": "ObtenerPorId",
     "RelativePath": "notificaciones/{id:int}",
     "HttpMethod": "GET",

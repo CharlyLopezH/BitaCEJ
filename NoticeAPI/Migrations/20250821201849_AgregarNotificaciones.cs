@@ -23,7 +23,7 @@ namespace NoticeAPI.Migrations
                     Destinatario = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Notificador = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ExpedienteAsunto = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FechaAcuse = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaAcuse = table.Column<DateOnly>(type: "datetime2", nullable: false),
                     FechaRegistro = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Capturo = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },

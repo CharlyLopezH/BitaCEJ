@@ -116,7 +116,7 @@
 
 .my-compact-table {
   /* --bs-table-line-height: 1.0; */
-  font-size: 1rem;
+  font-size: 10pt;
 }
 
 .my-compact-table tr {
@@ -128,32 +128,27 @@
 
 .my-compact-table td {
   padding: 0rem;
-} 
-
-
-
-/* Overide de variables de boostrap */
-table.table thead.my-theader {
-  --bs-table-bg: #15b86c !important; /* Variable CSS que Bootstrap usa */
-  background-color: #b815b0 !important; 
-  --bs-table-color: #FFF    
-
-    /* Espaciado (padding) */
-  --bs-table-cell-padding-y: 2rem;    /* 12px - ajusta vertical */
-  --bs-table-cell-padding-x: 2rem;     /* 24px - ajusta horizontal */
-
-}
-
-/* Si necesitas altura específica para las filas */
-.my-table tbody td {
-  height: 40px;            /* Altura para celdas del cuerpo */
-  padding: 8px 16px !important;
 }
 
 .my-btn-compact {
   padding: 0.25rem 0.5rem !important; /* 4px 8px */
   font-size: 0.8rem !important;
   line-height: 1.2;
+}
+
+.my-div-center-text {
+   display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  align-items: center;       /* centra verticalmente */
+  height: 3rem;             /* o el alto que necesites */
+}
+
+.my-theader {
+  text-align: left !important;            /* Alinea el texto a la izquierda */
+  vertical-align: middle;      /* Centra verticalmente */
+  background-color: #f0f4f8;   /* Cambia el color de fondo */
+  padding: 12px;               /* Espaciado interno */
+  font-weight: bold;  
 }
 
 /* Versión con máxima especificidad */
@@ -615,3 +610,44 @@ button:hover:not(:disabled) {
   font-size: 0.875rem;
   margin-bottom: 0;
 }
+
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.spinner-text {
+  margin-top: 0rem;
+  font-size: 1rem;
+  color: #666;
+}
+
+.dot {
+ opacity: 0;
+ animation: dotAnimation 1.5s infinite;
+ }
+ .dot:nth-child(1) { animation-delay: 0.0s; }
+ .dot:nth-child(2) { animation-delay: 0.2s; }
+ .dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes dotAnimation {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+  }

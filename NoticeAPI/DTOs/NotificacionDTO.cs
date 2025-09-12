@@ -10,7 +10,7 @@ namespace NoticeAPI.DTOs
         public string Destinatario { get; set; } = null!;
         public string Notificador { get; set; } = null!;
         public string ExpedienteAsunto { get; set; } = null!;
-        public DateTime FechaAcuse { get; set; }
+        public DateOnly FechaAcuse { get; set; }
         public DateTime FechaRegistro { get; set; } = DateTime.Now;
         public string Capturo { get; set; } = null!;
 

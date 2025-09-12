@@ -29,7 +29,7 @@ namespace NoticeAPI.Entidades
         public string ExpedienteAsunto { get; set; } = null!;
 
 
-        public DateTime FechaAcuse { get; set; }
+        public DateOnly FechaAcuse { get; set; }
 
         public DateTime FechaRegistro { get; set; } = DateTime.Now;
 
