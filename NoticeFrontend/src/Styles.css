@@ -639,6 +639,7 @@ button:hover:not(:disabled) {
   color: #666;
 }
 
+/* Esto es para la animación de los tres puntitos del cargando spinner */
 .dot {
  opacity: 0;
  animation: dotAnimation 1.5s infinite;
@@ -651,3 +652,8 @@ button:hover:not(:disabled) {
   50% { opacity: 1; }
   100% { opacity: 0; }
   }
+
+.mi-div-con-roboto {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 350; /* Peso regular */ 
+ }

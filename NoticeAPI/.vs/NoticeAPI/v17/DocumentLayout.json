@@ -83,8 +83,7 @@
               "RelativeToolTip": "Migrations\\ApplicationDbContextModelSnapshot.cs",
               "ViewState": "AgIAAEQAAAAAAAAAAAAAAEMAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T21:05:05.082Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T21:05:05.082Z"
             },
             {
               "$type": "Document",
@@ -96,8 +95,7 @@
               "RelativeToolTip": "Migrations\\20250821201849_AgregarNotificaciones.Designer.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAA2wEYAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T21:04:47.149Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T21:04:47.149Z"
             },
             {
               "$type": "Document",
@@ -109,8 +107,7 @@
               "RelativeToolTip": "Migrations\\20250821201849_AgregarNotificaciones.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T21:04:08.328Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T21:04:08.328Z"
             },
             {
               "$type": "Document",
@@ -122,8 +119,7 @@
               "RelativeToolTip": "Utilidades\\AutomapperProfiles.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T21:03:09.184Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T21:03:09.184Z"
             },
             {
               "$type": "Document",
@@ -135,8 +131,7 @@
               "RelativeToolTip": "Entidades\\Notificacion.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAA2wB8AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T21:01:11.975Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T21:01:11.975Z"
             },
             {
               "$type": "Document",
@@ -148,8 +143,7 @@
               "RelativeToolTip": "DTOs\\CrearNotifcacionDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T20:57:39.554Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T20:57:39.554Z"
             },
             {
               "$type": "Document",
@@ -161,8 +155,7 @@
               "RelativeToolTip": "Repositorios\\RepositorioNotificaciones.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T20:56:26.813Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T20:56:26.813Z"
             },
             {
               "$type": "Document",
@@ -187,8 +180,7 @@
               "RelativeToolTip": "Endpoints\\EntesEndpoints.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAtwC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T21:04:39.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-26T21:04:39.429Z"
             }
           ]
         }

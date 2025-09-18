@@ -1,27 +1,60 @@
 //Hook personalizado para obtener un response de la data de un API
-import { useEffect, useState} from "react";
+import type { AxiosResponse } from "axios";
+import {useEffect, useState} from "react";
+import type { notificacionDTO } from "../models/notificaciones.model";
+import axios from "axios";
 
-//Debe retornar algo así-->> https://localhost:7015/notificaciones?pagina=1&recordsPorPagina=10
+
+//Debe retornar un response.data con los datos a mostrar en la tabla del componente primario.
 const useNotificacionesData=(props: useNotificacionesDataProps)=>{
 
-    //const [valor,setValor] = useState('');
+ const [data, setData] = useState<notificacionDTO[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [totalDeRegistros, setTotalDeRegistros] = useState<number>(0);
+    const [totalDePaginas, setTotalDePaginas] = useState<number>(0);
+    const [error, setError] = useState<string | null>(null);
 
-    useEffect(()=>{
-        recuperarData();
-    },[])
+    // Función simple sin useCallback
+    const recuperarData = async (pagina: number) => {
+        const urlBase = `${props.apiURL}?pagina=${pagina}&recordsPorPagina=${props.recordsPorPagina}`;
+        console.log(`URL para fetching: ${urlBase}`);
+        
+        try {        
+            setLoading(true);   
+            setError(null);            
+            const response: AxiosResponse<notificacionDTO[]> = await axios.get(urlBase);                 
+            const totalData = parseInt(response.headers["cantidadtotalregistros"], 10);
+            setData(response.data);
+            setTotalDeRegistros(totalData);
+            setTotalDePaginas(Math.ceil(totalData / props.recordsPorPagina));
+            
+        } catch (error) {
+            console.log('Error!!:', error);
+            setError('Error al cargar los datos');
+            alert(`Error: ${error}`)            
+        } finally {
+            setLoading(false);
+        }
+    };
+
+
+        // Cargar automáticamente la primera página
+    useEffect(() => {
+        recuperarData(1);
+    }, [props.apiURL, props.recordsPorPagina]); // Se recarga cuando cambian estos parámetros
 
 
 
-
-const recuperarData=()=> {
-    console.log("Dentro de recuperar data enviada: "+props.apiURL);
-    return(props);
-   
-}
-
-return ('Regresando: '+props.apiURL);
-
-}
+    // Retornamos todo lo necesario
+    return {
+        data,
+        loading,
+        totalDeRegistros,
+        totalDePaginas,
+        error,
+        recuperarData
+    };
+};
 
 
 
@@ -29,7 +62,9 @@ return ('Regresando: '+props.apiURL);
 export default useNotificacionesData; 
 
 interface useNotificacionesDataProps {
- apiURL:string,
+ apiURL:string
+ cargando:boolean
+ recordsPorPagina:number
 }
 
 

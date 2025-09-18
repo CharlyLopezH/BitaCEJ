@@ -15,44 +15,42 @@ const IndiceNotificaciones=()=>{
 const [apiURL, setApiURL] = useState(urlNotificaciones);
 const [pagina, setPagina] = useState(1); //Determina la página activa (porque usaremos paginación)
 const [recordsPorPagina, setRecordsPorPagina] = useState(10);
-const [totalDeRegistros, setTotalDeRegistros] = useState(0);
-const [totalDePaginas, setTotalDePaginas] = useState(0);
-const [data, setData] = useState<notificacionDTO[]>([]);
-const [cargando, setCargando] = useState<boolean>(true);
+//const [cargando, setCargando] = useState<boolean>(false);
 
+//Uso del hook peronsalizado que trae la data
+const {data,  
+    loading,
+    totalDeRegistros,
+    totalDePaginas,    
+    error,     
+    recuperarData 
+} = useNotificacionesData({    
+    //Parámetros props a enviar al hook
+    apiURL: urlNotificaciones,  //Viene del archivo de notificaciones
+    cargando:true, //Se requiere controlar el spinner
+    recordsPorPagina,    
+}); 
+    // Para ver propiedades específicas:
+    // Debug: verificar datos recibidos
+    useEffect(() => {
+        console.log('📊 Datos en componente:', data);
+        console.log('🔄 Loading:', loading);
+        console.log('📈 Total registros:', totalDeRegistros);
+        console.log('🔢 Total páginas:', totalDePaginas);
+        console.log('❌ Error:', error);
+    }, [data, loading, totalDeRegistros, totalDePaginas, error]);
 
-const info = useNotificacionesData({
-    apiURL: urlNotificaciones
-}); //tentativa propuesta
 
 //Funciones
 useEffect(()=>{
-//recuperarData()
-console.log(`Info obtenido en el componente primario ${info}`);
+recuperarData(1)
+//recuperarData2()
+//console.log(`Info obtenido en el componente primario ${info}`);
 },[]);
 
-const recuperarData= async()=> {
 
-    //Url para traer datos recuperar la Data de notificaciones: urlNotificaciones + parámetros de paginación
-    //Conexión con el API
-    const urlBase = `${apiURL}?pagina=${pagina}&recordsPorPagina=${recordsPorPagina}`;
-    console.log(`urlBase ${urlBase}`, 'urlBase');
-    try {        
-     setCargando(true);   
-     const response: AxiosResponse<notificacionDTO[]> = await axios.get(urlBase);
-     console.log(`response.data: ${response.data.toString}`);
-     const totalData = parseInt(response.headers["cantidadtotalregistros"],10);
-     setTotalDeRegistros(totalData);
-     setTotalDePaginas(Math.ceil(totalData / recordsPorPagina));
-     setData(response.data);
-    } catch (error) {
-        console.log('Error inesperado: '+error)
-    }finally{
-    setCargando(false);
-    }
-}
     //Esperando la respuesta del fetch
-    if (cargando) {  return ( <div> <Spinner/>  </div>    ); }
+    if (loading) {  return ( <div> <Spinner/>  </div>    ); }
 
     return(
         <>
@@ -61,7 +59,7 @@ const recuperarData= async()=> {
             <code> Indice de Notificaciones </code>
         </div>    
         <hr className="mt-0"/>
-            <div>
+            <div className="mi-div-con-roboto">
                           <table className="table table-sm table-responsive  my-compact-table table-striped table-hover">
                             <thead className='my-theader'>
                             <tr>
