@@ -1,6 +1,6 @@
 import { type ChangeEvent } from "react";
 
-const SelectOpcRegsPorPag=(props:SelectOpcRegsPorPagProps)=>{
+const SelectOpcionesRegsPorPag=(props:SelectOpcionesRegsPorPagProps)=>{
 
   console.log('Componente de selección de cantidad de registros')
 
@@ -27,9 +27,9 @@ return(
       </div>
 )    
 }
-export default SelectOpcRegsPorPag;
+export default SelectOpcionesRegsPorPag;
 
-interface SelectOpcRegsPorPagProps {  
+interface SelectOpcionesRegsPorPagProps {  
   value:number
   defaultValue?:number
   opciones: number[]

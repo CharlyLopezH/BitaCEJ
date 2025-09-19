@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const Paginacion=(props: paginacionProps)=> {
     const [listadoLinks, setListadoLinks] = useState<modeloLink[]>([]);
+    //console.log(`Pagina Actual ${props.paginaActual}`);
 
     useEffect(() => {
         const paginaAnteriorHabilitada = props.paginaActual !== 1;

@@ -129,11 +129,11 @@ const traerData = async () => {
     <div className="my-full-width-split" >
       <div className='my-split-15'>
         <SelectOpcRegsPorPag             
-             defaultValue={10} 
-             opciones={[10, 25, 50,80]} 
-             onChangeRecords={setRecordsPorPagina}
-             resetPage={() => setPagina(1)} // Función opcional para resetear
-             />
+            defaultValue={10}
+            opciones={[10, 25, 50, 80]}
+            onChangeRecords={setRecordsPorPagina}
+            resetPage={() => setPagina(1)} // Función opcional para resetear
+            value={0}             />
       </div>
 
       <div className='my-split-85'>

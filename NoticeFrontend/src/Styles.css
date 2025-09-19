@@ -184,6 +184,7 @@ table.table thead.my-theader th {
 
 .my-split-15 {
   width: 15%;
+  margin-top: 2px;
 }
 
 .my-split-85 {
