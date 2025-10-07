@@ -2,7 +2,7 @@ import { type ChangeEvent } from "react";
 
 const SelectOpcRegsPorPag=(props:SelectOpcRegsPorPagProps)=>{
 
-  console.log('Componente de selección de cantidad de registros')
+  // console.log('Componente de selección de cantidad de registros')
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const newValue = parseInt(event.target.value, 10);
@@ -12,7 +12,7 @@ const SelectOpcRegsPorPag=(props:SelectOpcRegsPorPagProps)=>{
   }
 
 return(
-      <div>        
+      <div>                
         <select
           className="form-select form-select-sm"
           value={props.value}

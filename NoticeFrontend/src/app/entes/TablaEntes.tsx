@@ -67,7 +67,7 @@ const TablaEntes = () => { //Trataremos de renderizar una tabla con los datos qu
 
   if (error) return <div>Error: {error}</div>; //Manejo (default) del posible error en el intento del hook personalizado
   //Si la Variable de estado "cargando" está en true, es porque no ha llegado al finally del load...  
-  if (cargando) {  return ( <div> <Spinner/>  </div>    ); }
+  if (cargando) {  return ( <div> <Spinner mensaje={'loadign'}/>  </div>    ); }
 
   const handleEditar=(id: number)=> {
     throw new Error(`Function not implemented.${id}`);
@@ -81,11 +81,11 @@ const TablaEntes = () => { //Trataremos de renderizar una tabla con los datos qu
     <div className="my-full-width-split" >
       <div className='my-split-15'>
         <SelectOpcRegsPorPag             
-             defaultValue={10} 
-             opciones={[5, 10, 25, 50]} 
-             onChangeRecords={setRecordsPorPagina}
-             resetPage={() => setPagina(1)} // Función opcional para resetear
-             />
+            defaultValue={10}
+            opciones={[5, 10, 25, 50]}
+            onChangeRecords={setRecordsPorPagina}
+            resetPage={() => setPagina(1)} // Función opcional para resetear
+            value={0}             />
       </div>
 
       <div className='my-split-85'>

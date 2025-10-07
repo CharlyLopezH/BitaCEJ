@@ -2,11 +2,11 @@ import { type ChangeEvent } from "react";
 
 const SelectOpcionesRegsPorPag=(props:SelectOpcionesRegsPorPagProps)=>{
 
-  console.log('Componente de selección de cantidad de registros')
+  //console.log('Componente de selección de cantidad de registros')
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const newValue = parseInt(event.target.value, 10);
-        console.log(`handleChange del componente de Seleccioanr opc newValue:  ${newValue}`);
+        //console.log(`handleChange del componente de Seleccioanr opc newValue:  ${newValue}`);
         props.onChangeRecords(newValue);
     if (props.resetPage) props.resetPage(); // Resetear página si existe la función
   }

@@ -2,7 +2,8 @@
 import imagen from '../../src/assets/reactSpinner.svg';
 
 
-const Spinner=({textoCargando ='Cargando'})=>{
+//const Spinner=({textoCargando ='Cargando'})=>{
+const Spinner=(props:SpinnerProps)=>{
       return (
         <div className="spinner-overlay">
         <div className="spinner-container">
@@ -14,7 +15,7 @@ const Spinner=({textoCargando ='Cargando'})=>{
           alt="Cargando..." 
         />          
           <div className="spinner-text">
-          {textoCargando}     
+          {props.mensaje}     
           <span className="dot">.</span>
           <span className="dot">.</span>
           <span className="dot">.</span>  
@@ -24,4 +25,8 @@ const Spinner=({textoCargando ='Cargando'})=>{
     )
 }
 export default Spinner
+
+interface SpinnerProps {
+  mensaje:string
+}
 

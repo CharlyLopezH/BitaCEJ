@@ -134,7 +134,7 @@ const traerData = async () => {
             onChangeRecords={setRecordsPorPagina}
             resetPage={() => setPagina(1)} // Función opcional para resetear
             value={0}             />
-      </div>
+        </div>
 
       <div className='my-split-85'>
         {/* Este componente maneja un callback para ejecutar una acción que filtre los registros que coincidan con el string de búsqueda  */}
