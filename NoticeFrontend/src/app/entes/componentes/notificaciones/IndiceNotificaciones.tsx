@@ -60,6 +60,9 @@ const ejecutarBusquedaCadena = useCallback((cadena: string) => {
 
     return (                
     <>        
+    <div className="my-div-center-text">
+      <code> Índice de Notificaciones </code>
+    </div>
          <TablaNotificaciones 
                 data={data}
                 totalDePaginas={totalDePaginas}
@@ -77,10 +80,9 @@ const ejecutarBusquedaCadena = useCallback((cadena: string) => {
                 pagina={pagina}
                 recordsPorPagina={recordsPorPagina} 
                 ejecutarBusquedaCadena={ejecutarBusquedaCadena}
-        />
+        />        
     </>           
         )
-
   
 };
 

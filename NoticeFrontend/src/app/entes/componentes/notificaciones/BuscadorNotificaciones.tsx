@@ -1,8 +1,6 @@
 //Render del componenten de búsqueda, no realiza procesos
 const BuscadorNotificaciones=(props: BuscadorNotificacionesProps)=>{
 
-
-
   // 📢 Ejecuta la búsqueda cuando se hace clic en el botón
   const handleBuscar = () => {
     if (props.searchTerm.trim() !== "") {
@@ -25,6 +23,7 @@ const BuscadorNotificaciones=(props: BuscadorNotificacionesProps)=>{
 
 
     return ( 
+    
     <div className="notification-search container">
             <div className="search-input-group">
                 <input
@@ -33,6 +32,11 @@ const BuscadorNotificaciones=(props: BuscadorNotificacionesProps)=>{
                     value={props.searchTerm}
                     onChange={handleChange}                    
                     placeholder="Buscar..."
+                    onKeyDown={(e) => {
+                    if (e.key === "Enter" && props.searchTerm.trim()) {
+                    handleBuscar();
+                    }
+  }}
                 />
                 
                 <div className="search-buttons">

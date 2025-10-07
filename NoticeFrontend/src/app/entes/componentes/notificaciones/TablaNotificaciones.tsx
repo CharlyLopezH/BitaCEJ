@@ -7,10 +7,6 @@ const TablaNotificaciones=(props: TablaNotificacionesProps)=>{
   return (
     <>
       <div className="container">
-
-        <div className="my-div-center-text">
-          <code> Indice de Notificaciones </code>
-        </div>
         <hr className="mt-0" />
         <div className="my-text-sm">Registros por Página</div>
         <div className="my-full-width-split">
@@ -44,11 +40,11 @@ const TablaNotificaciones=(props: TablaNotificacionesProps)=>{
                 <tr key={n.id}>
                   <td>{n.id}</td>
                   <td>{n.oficioMemo}</td>
-                  <td>{n.fechaBitacora}</td>
+                  <td>{n.fechaBitacora ? new Date(n.fechaAcuse).toLocaleDateString('es-ES') : ''}</td>
                   <td>{n.destinatario}</td>
                   <td>{n.expedienteAsunto}</td>
                   <td>{n.notificador}</td>
-                  <td>{n.fechaAcuse}</td>
+                  <td>{n.fechaAcuse ? new Date(n.fechaAcuse).toLocaleDateString('es-ES') : ''}</td>
                   <td></td>
                 </tr>
               ))}              
